@@ -1,2 +1,2 @@
-class Friendship < ActiveRecord::Base
+class Friendship < ActiveRecord::Bases
 end
