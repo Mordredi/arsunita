@@ -8,6 +8,7 @@ class Venue < ActiveRecord::Base
   after_validation :geocode
 
   def full_address
-    "#{address_one} #{address_two}, #{city}, #{provice}, #{country}"
+    "#{address_one}, #{city}, #{province}, #{country}"
   end
+
 end
