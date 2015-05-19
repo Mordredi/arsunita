@@ -11,25 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150519180000) do
+ActiveRecord::Schema.define(version: 20150519181926) do
 
   create_table "events", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
     t.datetime "start_date"
     t.datetime "end_date"
-    t.integer  "num_of_seats"
     t.integer  "price_for_general"
-    t.string   "venue"
-    t.string   "address_one"
-    t.string   "address_two"
-    t.string   "city"
-    t.string   "province"
-    t.string   "country"
-    t.decimal  "latitude",          precision: 9, scale: 6
-    t.decimal  "longitude",         precision: 9, scale: 6
-    t.datetime "created_at",                                null: false
-    t.datetime "updated_at",                                null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "friends", force: :cascade do |t|
