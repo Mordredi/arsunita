@@ -4,10 +4,15 @@ class Ticket < ActiveRecord::Base
   belongs_to :user
 
   validates :num_of_general, :presence => true
+  before_save :check_capacity
 
   def cost_of_tickets
-    @show = Show.find(show_id)
-    @event = @show.event
-    @event.price_for_general * num_of_general
+    # @show = Show.find(show_id)
+    # @event = @show.event
+    event.price_for_general * num_of_general
+  end
+
+  def check_capacity
+    show.available?(num_of_general)
   end
 end
