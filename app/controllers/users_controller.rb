@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  skip_before_filter :require_login, only: [:index, :new, :create, :show]
+
   def index
     @users = User.all
   end
@@ -28,6 +30,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
+    binding.pry
     if @user.update_attributes(user_params)
       redirect_to user_url(@user), :notice => 'User Updated'
     else
@@ -45,7 +48,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:users).permit(:email, :first_name, :last_name, :password, :password_confirmation, :profession, :description, :avatar)
+    params.require(:user).permit(:email, :first_name, :last_name, :password, :password_confirmation, :profession, :description, :avatar, :arts_worker)
   end
 
 end

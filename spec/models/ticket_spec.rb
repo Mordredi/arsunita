@@ -23,9 +23,9 @@ RSpec.describe Ticket, type: :model do
 
   end
 
-  it "Will allow ticket purchase if room available for show" do
+  it "Will not allow ticket purchase if no room available for show" do
 
-    @ticket = create(:ticket, num_of_general: 101)
+    @ticket = build(:ticket, num_of_general: 101)
 
     result = @ticket.check_capacity
 

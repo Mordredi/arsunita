@@ -1,0 +1,8 @@
+<h1><%= @user.full_name %></h1>
+
+<% if user_profile %>
+  <% if arts_worker?(current_user) %>
+    <%= link_to "Create Event", new_event_path %>
+    <%= link_to "Create Venue", new_venue_path %>
+  <% end %>
+<% end %>

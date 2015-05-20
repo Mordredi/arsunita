@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
 
   def index
-    @events = Events.all
+    @events = Event.all
   end
 
   def show
@@ -10,6 +10,7 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+    @venues = Venue.all
   end
 
   def create
@@ -45,7 +46,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:events).permit(:name, :description, :start_date, :end_date, :price_for_general, :venue_id)
+    params.require(:event).permit(:name, :description, :start_date, :end_date, :price_for_general, :venue_id, :shows_attributes => [:id, :date])
   end
 
 end

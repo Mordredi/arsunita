@@ -1,0 +1,14 @@
+<h1><%= @venue.name %></h1>
+<p><%= @venue.description %></p>
+<p><%= @venue.full_address %></p>
+<p>Capacity: <%= @venue.num_of_seats %></p>
+<% if @venue.user %>
+  <p>Venue Owner: <%= @venue.user.full_name %></p>
+<% end %>
+
+<% if owner?(@venue) %>
+  <%= link_to "Edit Venue", edit_venue_path(@venue) %>
+  <%= link_to "Delete Venue", venue_path(@venue), :method => :destroy %>
+<% end %>
+
+<%= link_to "All venues", venues_path %>

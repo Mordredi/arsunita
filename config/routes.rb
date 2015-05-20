@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'home_page#index'
+
   resources :users
   resources :user_sessions, :only => [:new, :create, :destroy]
   resources :shows

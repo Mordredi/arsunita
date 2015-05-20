@@ -1,7 +1,7 @@
 class VenuesController < ApplicationController
 
   def index
-    @venues = Venues.all
+    @venues = Venue.all
   end
 
   def show
@@ -45,7 +45,7 @@ class VenuesController < ApplicationController
   private
 
   def venue_params
-    params.require(:venues).permit(:name, :description, :num_of_seats, :address_one, :city, :province, :country)
+    params.require(:venue).permit(:name, :description, :num_of_seats, :address_one, :city, :province, :country)
   end
 
 end

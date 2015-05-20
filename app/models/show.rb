@@ -3,7 +3,7 @@ class Show < ActiveRecord::Base
   has_many :tickets
 
   validates :date, :presence => true
-  before_save :within_event_run?
+  before_create :within_event_run?
 
   def within_event_run?
     @event = Event.find(event_id)
