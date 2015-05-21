@@ -8,12 +8,14 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @shows = @event.shows
     @ticket = Ticket.new
+    @event_members = @event.event_members
   end
 
   def new
     @event = Event.new
     @venues = Venue.all
     @show = Show.new
+    @event_member = EventMember.new
   end
 
   def create
@@ -50,7 +52,11 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:name, :description, :start_date, :end_date, :price_for_general, :venue_id, :shows_attributes => [:id, :date, :time, :_destroy])
+    params.require(:event).permit(
+      :name, :description, :start_date, :end_date, :price_for_general, :venue_id,
+      :shows_attributes => [:id, :date, :time, :_destroy],
+      :event_members_attributes => [:role, :admin, :user_id]
+    )
   end
 
 end

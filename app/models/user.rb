@@ -11,9 +11,10 @@ class User < ActiveRecord::Base
 
   has_many :tickets
   has_many :events
-  # has_many :events, through: :tickets
 
   has_many :venues
+
+  has_many :event_members
 
   has_many :friendees, through: :friendships, :foreign_key => "friendee_id"
   has_many :frienders, through: :friendships, :foreign_key => "friender_id"

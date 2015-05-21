@@ -8,6 +8,9 @@ class Event < ActiveRecord::Base
   has_many :shows
   accepts_nested_attributes_for :shows, :reject_if => :all_blank, :allow_destroy => true
 
+  has_many :event_members
+  accepts_nested_attributes_for :event_members, :reject_if => :all_blank, :allow_destroy => true
+
   has_many :tickets, through: :shows
 
 end

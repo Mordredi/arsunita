@@ -11,6 +11,14 @@
   <%= f.date_field :end_date %>
   <%= f.label :venue_id, "Venue" %>
   <%= f.collection_select(:venue_id, @venues, :id, :name) %>
+  <div id="event_members">
+    <%= fields_for @event_member do |event_member| %>
+      <%= render 'event_member_fields', :f => event_member %>
+      <div class="links">
+        <%= link_to_add_association 'Add Member', f, :event_members %>
+      </div>
+    <% end %>
+  </div>
   <div id="shows">
     <%= f.fields_for @show do |show| %>
       <%= render 'show_fields', :f => show %>

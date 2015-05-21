@@ -1,12 +1,12 @@
 <h1><%= @user.full_name %></h1>
 
 <% if user_profile %>
+  <% current_user.tickets.each do |ticket| %>
+    <p><%= link_to "#{ticket.event.name}", event_path(ticket.event) %></p>
+    <p><%= ticket.show.date.strftime('%b %d, %Y') %> <%= ticket.show.time.strftime('%I:%M:%S %p') %></p>
+    <p>Tickets: <%= ticket.num_of_general %></p>
+  <% end %>
   <% if arts_worker?(current_user) %>
-    <% current_user.tickets.each do |ticket| %>
-      <p><%= link_to "#{ticket.event.name}", event_path(ticket.event) %></p>
-      <p><%= ticket.show.date.strftime('%b %d, %Y') %> <%= ticket.show.time.strftime('%I:%M:%S %p') %></p>
-      <p>Tickets: <%= ticket.num_of_general %></p>
-    <% end %>
     <%= link_to "Create Event", new_event_path %>
     <%= link_to "Create Venue", new_venue_path %>
   <% end %>
