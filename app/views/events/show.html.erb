@@ -4,6 +4,12 @@
 <p>Ends: <%= @event.end_date.strftime("%b %d, %Y") %></p>
 <p>General Tickets: $<%= @event.price_for_general %></p>
 <p><%= @event.venue.name %></p>
+<ul>
+  <% @shows.each do |show| %>
+    <li><%= show.date.strftime('%b %d, %Y') %> <%= show.time.strftime('%I:%M:%S %p') %></li>
+    <li><%= button_to %></li>
+  <% end %>
+</ul>
 
 <% if owner?(@event) %>
   <%= link_to "Edit Event", edit_event_path(@event) %>

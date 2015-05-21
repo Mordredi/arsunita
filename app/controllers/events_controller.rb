@@ -6,11 +6,13 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @shows = @event.shows
   end
 
   def new
     @event = Event.new
     @venues = Venue.all
+    @show = Show.new
   end
 
   def create
@@ -25,6 +27,7 @@ class EventsController < ApplicationController
 
   def edit
     @event = Event.find(params[:id])
+    @venues = Venue.all
   end
 
   def update
@@ -46,7 +49,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:name, :description, :start_date, :end_date, :price_for_general, :venue_id, :shows_attributes => [:id, :date])
+    params.require(:event).permit(:name, :description, :start_date, :end_date, :price_for_general, :venue_id, :shows_attributes => [:id, :date, :time, :_destroy])
   end
 
 end
