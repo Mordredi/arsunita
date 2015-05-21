@@ -7,7 +7,12 @@
 <ul>
   <% @shows.each do |show| %>
     <li><%= show.date.strftime('%b %d, %Y') %> <%= show.time.strftime('%I:%M:%S %p') %></li>
-    <li><%= button_to %></li>
+    <%= form_for @ticket do |f| %>
+      <%= f.hidden_field :show_id, :value => show.id %>
+      <%= f.label :num_of_general, "Tickets" %>
+      <%= f.number_field :num_of_general %>
+      <%= f.button "Buy Tickets" %>
+    <% end %>
   <% end %>
 </ul>
 
