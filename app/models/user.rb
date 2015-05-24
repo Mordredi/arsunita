@@ -16,18 +16,38 @@ class User < ActiveRecord::Base
 
   has_many :event_members
 
-  has_many :friendees, through: :friendships, :foreign_key => "friendee_id"
-  has_many :frienders, through: :friendships, :foreign_key => "friender_id"
+  has_many :followees, :foreign_key => "follower_id", class_name: "Following"
+  has_many :followers, :foreign_key => "followee_id", class_name: "Following"
+  has_many :followed_users, through: :followees, source: :followee
+  has_many :users_following, through: :followers, source: :follower
 
-  has_many :followers, through: :followings, :foreign_key => "follower_id"
-  has_many :followees, through: :followings, :foreign_key => "followee_id"
+  has_many :friendees, :foreign_key => "friender_id", :class_name => "Friendship"
+  has_many :frienders, :foreign_key => "friendee_id", :class_name => "Friendship"
+  has_many :friended_users, :through => :friendees, :source => :friendee
+  has_many :users_friending, :through => :frienders, :source => :friender
 
   def full_name
     "#{first_name} #{last_name}"
   end
 
   def friends
-    frienders + friendees
+    friended_users + users_friending
+  end
+
+  def unconfirmed_friendees
+    friendees.where(confirmed: false)
+  end
+
+  def arts_worker?
+    arts_worker
+  end
+
+  def confirmed_friends
+    friendees.where(confirmed: true) + frienders.where(confirmed:true)
+  end
+
+  def gravatar
+    "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(email.strip.downcase)}?d=mm"
   end
 
 end

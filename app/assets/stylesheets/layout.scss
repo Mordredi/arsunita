@@ -1,0 +1,60 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *:after, *:before {
+  box-sizing: inherit;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  height: 2.5rem;
+  justify-content: space-between;
+  padding: .5rem;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+}
+nav {
+  display: none;
+  position: absolute;
+  top: 2.5rem;
+  right: 0;
+  ul {
+    display: flex;
+    flex-direction: column;
+  }
+  li {
+    width: 7rem;
+    padding: .5rem 0;
+    text-align: center;
+  }
+  a {
+   }
+}
+
+main {
+  display: flex;
+  margin-top: 2.5rem;
+  justify-content: center;
+  flex-direction: column;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media screen and (min-width: 700px) {
+  nav {
+    position: fixed;
+    display: block;
+    top: 0;
+    ul {
+      flex-direction: row;
+    }
+  }
+
+}

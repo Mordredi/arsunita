@@ -1,0 +1,16 @@
+.flash {
+  position: absolute;
+  top: 0;
+  left: 25vw;
+  width: 50vw;
+  background: #fff;
+  z-index: 10;
+}
+
+.notice {
+  color: green;
+}
+
+.alert {
+  color: red;
+}

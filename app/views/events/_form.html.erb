@@ -12,20 +12,20 @@
   <%= f.label :venue_id, "Venue" %>
   <%= f.collection_select(:venue_id, @venues, :id, :name) %>
   <div id="event_members">
-    <%= fields_for @event_member do |event_member| %>
-      <%= render 'event_member_fields', :f => event_member %>
-      <div class="links">
-        <%= link_to_add_association 'Add Member', f, :event_members %>
-      </div>
+    <%= f.fields_for :event_members do |event_members| %>
+      <%= render 'event_member_fields', :f => event_members %>
     <% end %>
+    <div class="links">
+      <%= link_to_add_association 'Add Member', f, :event_members %>
+    </div>
   </div>
   <div id="shows">
-    <%= f.fields_for @show do |show| %>
+    <%= f.fields_for :shows do |show| %>
       <%= render 'show_fields', :f => show %>
-      <div class="links">
-        <%= link_to_add_association 'Add show', f, :shows %>
-      </div>
     <% end %>
+    <div class="links">
+      <%= link_to_add_association 'Add show', f, :shows %>
+    </div>
   </div>
   <%= f.button %>
 <% end %>

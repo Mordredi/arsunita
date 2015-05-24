@@ -1,4 +1,5 @@
-<h1>All Venues</h1>
 <% @venues.each do |venue| %>
-  <%= link_to "#{venue.name}", venue_path(venue) %>
+  <div class="venues">
+    <h2><%= link_to "#{venue.name}", venue_path(venue) %></h2>
+  </div>
 <% end %>

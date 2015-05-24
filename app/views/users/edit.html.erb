@@ -1,8 +1,10 @@
+<div class="container">
 <%= form_for @user do |f| %>
   <%= render 'form', :f => f %>
-  <% if arts_worker?(current_user) %>
+  <% if current_user.arts_worker? %>
     <%= f.label :profession, "Profession" %>
     <%= f.text_field :profession %>
   <% end %>
   <%= f.button %>
 <% end %>
+</div>

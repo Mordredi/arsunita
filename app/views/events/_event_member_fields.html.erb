@@ -1,4 +1,9 @@
 <div class="nested-fields">
-  <%# f.label :user_id, "Member" %>
-  <%# f. %>
+  <%= f.label :user_id, "Member" %>
+  <%= f.collection_select(:user_id, @users, :id, :full_name) %>
+  <%= f.label :role, "Role" %>
+  <%= f.text_field :role %>
+  <%= f.label :admin, "Admin" %>
+  <%= f.check_box :admin %>
+  <%= link_to_remove_association "Remove Member", f %>
 </div>

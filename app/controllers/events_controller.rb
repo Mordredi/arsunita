@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  skip_before_filter :require_login, only: [:index, :show]
 
   def index
     @events = Event.all
@@ -14,8 +15,7 @@ class EventsController < ApplicationController
   def new
     @event = Event.new
     @venues = Venue.all
-    @show = Show.new
-    @event_member = EventMember.new
+    @users = User.where(arts_worker: true)
   end
 
   def create
@@ -31,6 +31,7 @@ class EventsController < ApplicationController
   def edit
     @event = Event.find(params[:id])
     @venues = Venue.all
+    @users = User.where(arts_worker: true)
   end
 
   def update
@@ -55,7 +56,7 @@ class EventsController < ApplicationController
     params.require(:event).permit(
       :name, :description, :start_date, :end_date, :price_for_general, :venue_id,
       :shows_attributes => [:id, :date, :time, :_destroy],
-      :event_members_attributes => [:role, :admin, :user_id]
+      :event_members_attributes => [:role, :admin, :user_id, :_destroy]
     )
   end
 

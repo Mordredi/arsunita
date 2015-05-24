@@ -1,22 +1,51 @@
-<h1><%= @event.name %></h1>
-<p><%= @event.description %></p>
-<p>Starts: <%= @event.start_date.strftime("%b %d, %Y") %></p>
-<p>Ends: <%= @event.end_date.strftime("%b %d, %Y") %></p>
-<p>General Tickets: $<%= @event.price_for_general %></p>
-<p><%= @event.venue.name %></p>
-<ul>
-  <% @shows.each do |show| %>
-    <li><%= show.date.strftime('%b %d, %Y') %> <%= show.time.strftime('%I:%M:%S %p') %></li>
-    <%= form_for @ticket do |f| %>
-      <%= f.hidden_field :show_id, :value => show.id %>
-      <%= f.label :num_of_general, "Tickets" %>
-      <%= f.number_field :num_of_general %>
-      <%= f.button "Buy Tickets" %>
-    <% end %>
-  <% end %>
-</ul>
+<div class="event">
+  <h1><%= @event.name %></h1>
+  <div class="event-info">
+    <p><%= @event.description %></p>
+    <p><%= @event.venue.name %></p>
+    <p>Starts: <%= @event.start_date.strftime("%b %d, %Y") %></p>
+    <p>Ends: <%= @event.end_date.strftime("%b %d, %Y") %></p>
+    <p>General Tickets: $<%= @event.price_for_general %></p>
+    <h2>Featuring</h2>
+    <div class="event-members">
+      <% @event.event_members.each do |event_member| %>
+        <div class="event_member">
+          <p><%= event_member.user.full_name %>: <%= event_member.role %></p>
+        </div>
+      <% end %>
+    </div>
+    <div class="shows">
+        <% @event.shows.each do |show| %>
+        <div class="show">
+          <p><%= show.date.strftime('%b %d, %Y') %> <%= show.time.strftime('%I:%M:%S %p') %></p>
+          <% if current_user %>
+            <%= form_for @ticket do |f| %>
+              <%= f.hidden_field :show_id, :value => show.id %>
+              <%= f.label :num_of_general, "Tickets" %>
+              <%= f.number_field :num_of_general %>
+              <%= f.button "Buy Tickets" %>
+            <% end %>
 
-<% if owner?(@event) %>
-  <%= link_to "Edit Event", edit_event_path(@event) %>
-  <%= link_to "Delete Event", event_path(@event), :method => :delete %>
-<% end %>
+            <div class="friends-attending">
+              <% show.tickets.each do |ticket| %>
+                <% if current_user.friends.include?(ticket.user) %>
+                  <%= ticket.user.full_name %>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        <% else %>
+          <p>Please <%= link_to "login", :login %> or <%= link_to "register", new_user_path %> to buy tickets</p>
+        <% end %>
+      <% end %>
+    </div>
+
+    <% if current_user %>
+      <% if owner?(@event) %>
+        <%= link_to "Edit Event", edit_event_path(@event) %>
+        <%= link_to "Delete Event", event_path(@event), :method => :delete %>
+      <% end %>
+    <% end %>
+
+  </div>
+</div>

@@ -1,0 +1,26 @@
+form {
+  text-align: center;
+  a {
+    color: $dark-primary;
+  }
+  .links {
+    margin-bottom: 1rem;
+  }
+}
+
+label {
+  color: $font-color;
+  font-size: 1.2rem;
+}
+
+select, input, textarea {
+  text-align: center;
+  font-size: 1.2rem;
+  padding: .25rem;
+  margin-bottom: 1rem;
+}
+
+button {
+  font-size: 1.2rem;
+}
+

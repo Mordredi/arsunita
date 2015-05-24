@@ -1,0 +1,8 @@
+<% @users.each do |user| %>
+  <div class="users">
+    <h2><%= link_to "#{user.full_name}", user_path(user) %></h2>
+    <% if user.arts_worker? %>
+      <p><%= user.profession %></p>
+    <% end %>
+  </div>
+<% end %>

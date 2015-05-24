@@ -1,14 +1,16 @@
-<h1>New User</h1>
+<div class="container">
+  <h1>New User</h1>
 
-<%= form_for @user do |f| %>
-  <%= render 'form', :f => f %>
-  <%= f.label :email, "Email" %>
-  <%= f.email_field :email %>
-  <%= f.label :password, "Password" %>
-  <%= f.password_field :password %>
-  <%= f.label :password_confirmation, "Password Confirmation" %>
-  <%= f.password_field :password_confirmation %>
-  <%= f.label :arts_worker, "Arts Worker" %>
-  <%= f.check_box :arts_worker %>
-  <%= f.button "Create Profile" %>
-<% end %>
+  <%= form_for @user do |f| %>
+    <%= render 'form', :f => f %>
+    <%= f.label :email, "Email" %>
+    <%= f.email_field :email %>
+    <%= f.label :password, "Password" %>
+    <%= f.password_field :password %>
+    <%= f.label :password_confirmation, "Password Confirmation" %>
+    <%= f.password_field :password_confirmation %>
+    <%= f.label :arts_worker, "Arts Worker" %>
+    <%= f.check_box :arts_worker %>
+    <%= f.button "Create Profile" %>
+  <% end %>
+</div>

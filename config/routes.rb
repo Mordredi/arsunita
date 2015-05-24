@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resources :events
   resources :tickets
   resources :venues
+  resources :followings, :only => [:create, :destroy]
+  resources :friendships, :only => [:create, :update, :destroy]
 
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout

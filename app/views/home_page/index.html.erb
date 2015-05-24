@@ -1,4 +1,14 @@
-<h1>Welcome to ArsUnita!</h1>
-
-<%= link_to "Register", new_user_path %>
-<%= link_to "Login", :login %>
+<div class='home-page-image'>
+  <!-- <img src="http://www.zarvaragh.com/admin/Pictures/EnglishEvent/Large/475.jpg" alt="theatre"> -->
+</div>
+<div class="home-page-content">
+  <div class="home-page-welcome">
+    <h1>Welcome to ArsUnita!</h1>
+    <p>This is a site for those who work in the arts and those who enjoy the arts.</p>
+    <p>Sign up today to start discovering what artists in your area are up to. If you find someone who's work intrigues you follow them and keep up to date with their future endeavours!</p>
+  </div>
+  <div class="home-page-btns">
+    <%= link_to "Register", new_user_path, :class => 'btn btn-signup' %>
+    <%= link_to "Login", :login, :class => 'btn btn-login' %>
+  </div>
+</div>

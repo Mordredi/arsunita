@@ -1,3 +1,34 @@
-// Place all the styles related to the HomePage controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.home-page-image {
+  height: 60vh;
+  width: 100vw;
+  background-image: url("http://www.zarvaragh.com/admin/Pictures/EnglishEvent/Large/475.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.home-page-welcome {
+  background: #fff;
+  padding: .5em;
+}
+
+.home-page-btns {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+@media screen and (min-width: 700px) {
+  .home-page-content {
+    display: flex;
+    background: #fff;
+  }
+  .home-page-welcome {
+    width: 50%;
+  }
+  .home-page-btns {
+    width: 50%;
+    align-items: center;
+    justify-content: space-around;
+  }
+}

@@ -1,13 +1,132 @@
-<h1><%= @user.full_name %></h1>
+<div class="user-profile">
 
-<% if user_profile %>
-  <% current_user.tickets.each do |ticket| %>
-    <p><%= link_to "#{ticket.event.name}", event_path(ticket.event) %></p>
-    <p><%= ticket.show.date.strftime('%b %d, %Y') %> <%= ticket.show.time.strftime('%I:%M:%S %p') %></p>
-    <p>Tickets: <%= ticket.num_of_general %></p>
+  <%= image_tag @user.gravatar %>
+
+  <div class="user-info">
+    <h1><%= @user.full_name %></h1>
+    <p class="description"><%= @user.description %></p>
+    <% if @user.arts_worker? %>
+      <p class="profession"><%= @user.profession %></p>
+      <div class="user-events">
+        <h2>Current Events</h2>
+        <% @user.event_members.each do |member| %>
+          <div class="user-event">
+            <%= link_to "#{member.event.name}", event_path(member.event) %>
+            <%= member.role %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+
+  <% if current_user && !user_profile %>
+    <div class="social-links">
+      <% if @user.arts_worker? && !following?(@user) %>
+        <%= link_to "Follow #{@user.full_name}", followings_path(id: @user.id), :method => :create, :class => 'btn-follow' %>
+        <% if current_user.arts_worker? && !friends?(@user) %>
+          <%= link_to "Add #{@user.full_name} as friend", friendships_path(id: @user.id), :method => :create, :class => 'btn-friend' %>
+        <% else %>
+          <p>You are friends with <%= @user.full_name %></p>
+        <% end %>
+      <% elsif !@user.arts_worker? && !friends?(@user) %>
+        <%= link_to "Add #{@user.full_name} as friend", friendships_path(id: @user.id), :method => :create, :class => 'btn-friend' %>
+      <% else %>
+      <p>You are friends with <%= @user.full_name %></p>
+      <% end %>
+    </div>
   <% end %>
-  <% if arts_worker?(current_user) %>
-    <%= link_to "Create Event", new_event_path %>
-    <%= link_to "Create Venue", new_venue_path %>
+
+  <% if user_profile %>
+
+    <div class="user-links">
+      <%= link_to "Friend Requests", '#', 'data-link' => 'friend-requests', :class => 'btn-user user-info' %>
+      <%= link_to "Friends", '#', 'data-link' => 'friends', :class => 'btn-user user-info' %>
+      <%= link_to "Tickets", '#', 'data-link' => 'tickets', :class => 'btn-user user-info' %>
+      <%= link_to "Following", '#', 'data-link' => 'following', :class => 'btn-user user-info' %>
+      <%= link_to "Edit Profile", edit_user_path(current_user), :class => 'btn-user' %>
+      <% if current_user.arts_worker? %>
+        <%= link_to "Followers", '#', 'data-link' => 'followers', :class => 'btn-user user-info' %>
+        <%= link_to "Create Event", new_event_path, :class => 'btn-user' %>
+        <%= link_to "Create Venue", new_venue_path, :class => 'btn-user' %>
+      <% end %>
+    </div>
+
+
+    <div id="following" class="container-lrg">
+      <h2>Following</h2>
+      <div class="container">
+        <% current_user.followed_users.each do |followed_user| %>
+          <div class="container-sm">
+            <%= link_to "#{followed_user.full_name}", user_path(followed_user), :class => 'user-link' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <% if current_user.arts_worker? %>
+      <div id="followers" class="container-lrg">
+        <h2>Followers</h2>
+        <div class="container">
+          <% current_user.users_following.each do |follower| %>
+            <div class="container-sm">
+              <%= link_to "#{follower.full_name}", user_path(follower), :class => 'user-link' %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+
+    <div id="pending-requests" class="container-lrg">
+      <h2>Requested Friendship</h2>
+      <div class="container">
+        <% current_user.unconfirmed_friendees.each do |friendship| %>
+          <% @friendee = friendship.friendee %>
+          <div class="container-sm">
+            <%= link_to "#{@friendee.full_name}", user_path(@friendee), :class => 'user-link' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div id="friend-requests" class="container-lrg">
+      <h2>Friend Requests</h2>
+      <div class="container">
+        <% current_user.frienders.where(confirmed: false).each do |friendship| %>
+          <% @friender = User.find(friendship.friender_id) %>
+          <div class="container-sm">
+            <%= link_to "#{@friender.full_name}", user_path(@friender), :class => 'user-link' %>
+            <%= link_to "Confirm Friend Request", friendship_path(friendship), :method => :put %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div id="friends" class="container-lrg">
+      <h2>Friends</h2>
+      <div class="container">
+        <% current_user.confirmed_friends.each do |friendship| %>
+          <% @friend = User.find(friendship.friendee_id) %>
+          <div class="container-sm">
+            <%= link_to "#{@friend.full_name}", user_path(@friend), :class => 'user-link' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div id="tickets" class="container-lrg">
+      <h2>Tickets</h2>
+      <div class="container">
+        <% current_user.tickets.each do |ticket| %>
+          <div class="container-sm">
+            <p><%= link_to "#{ticket.event.name}", event_path(ticket.event), :class => 'user-link' %></p>
+            <p><%= ticket.show.date.strftime('%b %d, %Y') %> <%= ticket.show.time.strftime('%I:%M:%S %p') %></p>
+            <p>Tickets: <%= ticket.num_of_general %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
   <% end %>
-<% end %>
+
+</div>

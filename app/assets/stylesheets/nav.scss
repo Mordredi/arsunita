@@ -1,0 +1,23 @@
+nav {
+  ul {
+
+  }
+  li {
+    background: #fff;
+  }
+  a {
+    color: $dark-primary;
+    text-shadow: 0 1px 1px black;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  nav {
+    li {
+      background: $primary-color;
+      a {
+        color: #fff;
+      }
+    }
+  }
+}

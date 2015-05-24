@@ -1,0 +1,27 @@
+.btn {
+  display: block;
+  width: 50%;
+  text-align: center;
+  padding: 1rem;
+  font-size: 2rem;
+  margin: 0;
+}
+
+.btn-signup {
+  color: #fff;
+  text-shadow: 0 1px 1px black;
+  background: $dark-primary;
+}
+
+.btn-login {
+  color: #fff;
+  text-shadow: 0 1px 1px black;
+  background: green;
+}
+
+@media screen and (min-width: 700px) {
+  .btn {
+    width: 30%;
+    height: 20%;
+  }
+}

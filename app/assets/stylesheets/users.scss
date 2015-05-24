@@ -1,3 +1,85 @@
-// Place all the styles related to the Users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.users {
+  background: #fff;
+  margin: .5rem;
+  padding: .5rem;
+  box-shadow: 0 1px 1px #888;
+  h2 {
+    font-size: 1.5rem;
+    a{
+      color: $dark-primary;
+    }
+  }
+}
+
+.user-profile {
+  background: #fff;
+  padding: .5rem;
+  h2 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  .social-links {
+    text-align: center;
+    a {
+      padding: .5rem;
+    }
+  }
+  .user-links {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    a {
+      padding: .5rem;
+    }
+  }
+  .user-info {
+    text-align: center;
+    h1 {
+      margin-bottom: 0;
+    }
+    .profession {
+      margin-top: 0;
+      text-align: center;
+    }
+  }
+}
+
+.container-lrg {
+  display: none;
+  position: absolute;
+  top: 25vh;
+  left: 25vw;
+  border: 1px solid black;
+  background: #fff;
+  width: 50vw;
+  height: 50vh;
+  text-align: center;
+  margin: .5rem auto;
+  padding: 0 .5rem .5rem;
+  z-index: 10;
+  .container {
+    display: flex;
+    justify-content: space-around;
+  }
+  .container-sm {
+    border: 1px solid black;
+    width: 30%;
+  }
+}
+
+.lightbox {
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: hsla(0, 0%, 0%, .7);
+}
+
+@media screen and (min-width: 700px) {
+
+.user-profile {
+  width: 80vw;
+  margin: 0 auto;
+  }
+}
