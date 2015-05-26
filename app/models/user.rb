@@ -26,6 +26,8 @@ class User < ActiveRecord::Base
   has_many :friended_users, :through => :friendees, :source => :friendee
   has_many :users_friending, :through => :frienders, :source => :friender
 
+  has_many :videos
+
   def full_name
     "#{first_name} #{last_name}"
   end

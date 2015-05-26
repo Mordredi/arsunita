@@ -3,14 +3,17 @@
   top: 0;
   left: 25vw;
   width: 50vw;
-  background: #fff;
   z-index: 10;
+  border-radius: 10px;
+  color: #fff;
 }
 
 .notice {
-  color: green;
+  background: hsla(114, 100%, 38%, .9);
+  border: 1px solid green;
 }
 
 .alert {
-  color: red;
+  background: hsla(0, 100%, 49%, .9);
+  border: 1px solid red;
 }

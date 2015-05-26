@@ -1,7 +1,5 @@
 class Event < ActiveRecord::Base
 
-  validates :start_date, :end_date, :price_for_general, :name, :description, :presence => true
-
   belongs_to :user
   belongs_to :venue
 
@@ -12,5 +10,7 @@ class Event < ActiveRecord::Base
   accepts_nested_attributes_for :event_members, :reject_if => :all_blank, :allow_destroy => true
 
   has_many :tickets, through: :shows
+
+  validates :start_date, :end_date, :price_for_general, :name, :description, :presence => true
 
 end

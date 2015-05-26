@@ -1,0 +1,8 @@
+<% if friendship.friender == current_user %>
+  <% friend = friendship.friendee %>
+<% else %>
+  <% friend = friendship.friender %>
+<% end %>
+<div class="container-sm">
+  <%= link_to "#{friend.full_name}", user_path(friend), :class => 'user-link' %>
+</div>

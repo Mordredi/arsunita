@@ -4,10 +4,15 @@ class FollowingsController < ApplicationController
     @user = User.find(params[:id])
     @followee = current_user.followees.build
     @followee.followee_id = @user.id
-    if @followee.save
-      redirect_to user_path(@user), :notice => "User followed"
-    else
-      render 'show'
+
+    respond_to do |format|
+      if @followee.save
+        format.html { redirect_to user_path(@user), :notice => "User followed" }
+        format.js {}
+      else
+        format.html { render 'show' }
+        format.js {}
+      end
     end
   end
 

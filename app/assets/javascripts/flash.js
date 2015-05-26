@@ -1,6 +1,6 @@
 $(document).on('ready page:load', function(){
-  $('#menu').on('click', function(e){
+  $('#close').on('click', function(e){
     e.preventDefault();
-    $('.header-links').toggle();
+    $('.flash').remove();
   });
 });

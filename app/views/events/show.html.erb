@@ -27,6 +27,7 @@
             <% end %>
 
             <div class="friends-attending">
+              <h2>Friends Attending</h2>
               <% show.tickets.each do |ticket| %>
                 <% if current_user.friends.include?(ticket.user) %>
                   <%= ticket.user.full_name %>

@@ -1,0 +1,5 @@
+<% friender = request.friender %>
+<div class="container-sm">
+  <%= link_to "#{friender.full_name}", user_path(friender), :class => 'user-link' %>
+  <%= link_to "Confirm Friend Request", friendship_path(request), :class => 'confirm' %>
+</div>

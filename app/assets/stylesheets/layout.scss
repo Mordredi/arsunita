@@ -15,6 +15,7 @@ header {
   position: fixed;
   top: 0;
   width: 100vw;
+  z-index: 9;
 }
 nav {
   display: none;
@@ -34,6 +35,8 @@ nav {
    }
 }
 
+
+
 main {
   display: flex;
   margin-top: 2.5rem;
@@ -48,13 +51,4 @@ form {
 }
 
 @media screen and (min-width: 700px) {
-  nav {
-    position: fixed;
-    display: block;
-    top: 0;
-    ul {
-      flex-direction: row;
-    }
-  }
-
 }

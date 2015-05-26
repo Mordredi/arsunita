@@ -1,8 +1,8 @@
 $(document).on('ready page:load', function(){
-  $('.user-info').on('click', function(e){
+  $('.btn-user-social').on('click', function(e){
     e.preventDefault();
-    var link = '#' + $(this).attr('data-link');
     $('body').append('<div class="lightbox"> </div>');
+    var link = '#' + $(this).attr('data-link');
     $(link).show();
     $('.lightbox').on('click', function(){
       $(this).remove();
