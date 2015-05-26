@@ -10,10 +10,15 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @videos = @user.videos
     @event_members = @user.event_members
-    @followers = current_user.users_following
-    @requests = current_user.frienders.where(confirmed: false)
-    @friendships = current_user.confirmed_friends
-    @tickets = current_user.tickets
+    if current_user
+      @followers = current_user.users_following
+      @requests = current_user.frienders.where(confirmed: false)
+      @friendships = current_user.confirmed_friends
+      @tickets = current_user.tickets
+      if current_user.arts_worker?
+        @video = current_user.videos.build
+      end
+    end
   end
 
   def new
@@ -37,11 +42,14 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.update_attributes(user_params)
-      redirect_to user_url(@user), :notice => 'User Updated'
-    else
-      flash.now[:alert] = 'User edit failed'
-      render 'edit'
+    respond_to do |format|
+      if @user.update_attributes(user_params)
+        format.html { redirect_to user_url(@user), :notice => 'User Updated' }
+        format.js {}
+      else
+        format.html { flash.now[:alert] = 'User edit failed'; render 'edit'}
+        format.js {}
+      end
     end
   end
 

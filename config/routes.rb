@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :venues
   resources :followings, :only => [:create, :destroy]
   resources :friendships, :only => [:create, :update, :destroy]
+  resources :videos, :only => [:create, :destroy]
 
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout

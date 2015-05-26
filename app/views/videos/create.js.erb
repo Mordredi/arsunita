@@ -1,0 +1,3 @@
+$('.lightbox').remove();
+$('#add-video').hide();
+$('.user-videos').find('container').contents().replaceWith("<%= j(render partial: 'videos/video', :collection => @videos) %>");
