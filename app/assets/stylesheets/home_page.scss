@@ -1,27 +1,22 @@
-.home-page-image {
-  height: 60vh;
-  width: 100vw;
-  background-image: url("http://www.zarvaragh.com/admin/Pictures/EnglishEvent/Large/475.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
+// .home-page-image {
+//   height: 60vh;
+//   width: 100vw;
+//   background-image: url("http://www.zarvaragh.com/admin/Pictures/EnglishEvent/Large/475.jpg");
+//   background-size: cover;
+//   background-repeat: no-repeat;
+//   background-position: center center;
+// }
 
 .home-page-welcome {
-  background: #fff;
-  padding: .5em;
-}
-
-.home-page-btns {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
+  padding: .3rem 1rem .5em;
+  a {
+    color: $primary-color;
+  }
 }
 
 @media screen and (min-width: 700px) {
   .home-page-content {
     display: flex;
-    background: #fff;
   }
   .home-page-welcome {
     width: 50%;

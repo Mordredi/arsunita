@@ -1,14 +1,26 @@
 <div id="search-results">
-  <h3>Users</h3>
-  <% @users.each do |user| %>
-    <%= link_to user.full_name, user_path(user) %>
-  <% end %>
+  <div class="search-container">
+    <h3>Users</h3>
+    <% @users.each do |user| %>
+      <div class="search-user">
+        <%= image_tag user.gravatar, :class => 'search-gravatar' %><%= link_to user.full_name, user_path(user) %>
+      </div>
+    <% end %>
+  </div>
+  <div class="search-container">
   <h3>Events</h3>
-  <% @events.each do |event| %>
-    <%= link_to event.name, event_path(event) %>
-  <% end %>
-  <h3>Venues</h3>
-  <% @venues.each do |venue| %>
-    <%= link_to venue.name, venue_path(venue) %>
-  <% end %>
+    <% @events.each do |event| %>
+      <div class="search-event">
+        <%= link_to event.name, event_path(event) %>
+      </div>
+    <% end %>
+  </div>
+  <div class="search-container">
+    <h3>Venues</h3>
+    <% @venues.each do |venue| %>
+      <div class="search-venue">
+        <%= link_to venue.name, venue_path(venue) %>
+      </div>
+    <% end %>
+  </div>
 </div>

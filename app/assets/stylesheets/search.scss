@@ -1,10 +1,43 @@
 #search-results {
   position: absolute;
-  top: 10rem;
+  top: 2.5rem;
   background: black;
-  left: 10rem;
+  width: 100%;
   color: white;
+  text-align: center;
   a{
-    color: white
+    color: white;
+  }
+  h3 {
+    text-align: center;
+  }
+  .search-container {
+    width: 60%;
+    margin: .3rem auto;
+    display: flex;
+    flex-direction: column;
+  };
+  .search-user{
+    display: flex;
+    justify-content: space-between;
+    margin-top: .3rem;
+  };
+  .search-gravatar {
+    max-width: 1.7rem;
+    max-height: 1.7rem;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .search-form {
+    margin: 0 0 0 45%;
+  }
+
+  #search-results {
+    width: 40%;
+    left: 30%;
+    .search-container {
+    width: 35%;
+    }
   }
 }

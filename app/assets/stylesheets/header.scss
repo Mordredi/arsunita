@@ -28,17 +28,29 @@ header {
 }
 .header-links {
   display: none;
+  position: absolute;
+  top: 2.5rem;
+  right: 0;
+  ul {
+    display: flex;
+    flex-direction: column;
+    background: hsla(27, 100%, 50%, .9);
+    box-shadow: 0 1px 1px #333;
+    li {
+      text-align: center;
+      padding: .5rem;
+      width: 8rem;
+    };
+    a {
+      font-size: 1.2rem;
+      color: #fff;
+      text-shadow: 0 1px 1px black;
+    }
+  }
 }
 
 @media screen and (min-width: 700px) {
-  .menu {
-    display: none;
-  }
-  .header-links {
-    display: flex;
-    align-items: center;
-    a {
-      padding: 1rem;
-    }
+  header{
+    padding: 0 1rem;
   }
 }
