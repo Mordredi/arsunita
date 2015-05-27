@@ -31,7 +31,6 @@ gem 'cocoon'
 gem "figaro"
 gem "autoprefixer-rails"
 gem 'jquery-ui-rails'
-gem "simple_calendar", "~> 1.1.0"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
