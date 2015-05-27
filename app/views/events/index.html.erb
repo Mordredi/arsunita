@@ -1,5 +1,9 @@
-<% @events.each do |event| %>
-  <div class="events">
-    <h2><%= link_to "#{event.name}", event_path(event) %></h2>
-  </div>
-<% end %>
+<h1>Events</h1>
+<h2>Search by Category</h2>
+<div class="categories">
+  <% @categories.each do |category| %>
+    <%= link_to category.name, events_path, :class => 'btn-category', 'data-category' => category.id %>
+  <% end %>
+  <%= link_to "All", events_path, :class => 'btn-category', 'data-category' => @categories.length + 1 %>
+</div>
+<div class="events"></div>

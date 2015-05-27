@@ -2,7 +2,18 @@ class EventsController < ApplicationController
   skip_before_filter :require_login, only: [:index, :show]
 
   def index
-    @events = Event.all
+    @categories = Category.all
+    if params[:search]
+      if params[:search].to_i == @categories.length + 1
+        @events = Event.all
+      else
+        @events = Event.where(category_id: params[:search])
+      end
+    end
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def show
