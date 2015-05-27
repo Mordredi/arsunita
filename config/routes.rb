@@ -5,16 +5,19 @@ Rails.application.routes.draw do
   resources :user_sessions, :only => [:new, :create, :destroy]
   resources :shows
   resources :events
-  resources :tickets
+  resources :tickets, :only => [:index, :create]
   resources :venues
-  resources :followings, :only => [:create, :destroy]
-  resources :friendships, :only => [:create, :update, :destroy]
+  resources :followings, :only => [:index, :create, :destroy]
+  resources :friendships, :only => [:index, :create, :update, :destroy]
   resources :videos, :only => [:create, :destroy]
 
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout
 
-  get 'search' => 'home_page', :as => :search
+  get 'search' => 'home_page#search', :as => :search
+
+  get 'requests' => 'friendships#requests'
+  get 'followers' => 'followings#followers'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,6 +1,7 @@
 class VideosController < ApplicationController
 
   def create
+    @user = current_user
     @video = current_user.videos.build(video_params)
     respond_to do |format|
       if @video.save

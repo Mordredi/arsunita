@@ -1,4 +1,11 @@
 class TicketsController < ApplicationController
+  def index
+    @tickets = current_user.tickets
+
+    respond_to do |format|
+      format.js
+    end
+  end
 
   def create
     @ticket = current_user.tickets.build(ticket_params)

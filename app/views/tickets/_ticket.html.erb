@@ -1,5 +1,12 @@
-<div class="container-sm">
-  <p><%= link_to "#{ticket.event.name}", event_path(ticket.event), :class => 'user-link' %></p>
-  <p><%= ticket.show.date.strftime('%b %d, %Y') %> <%= ticket.show.time.strftime('%I:%M:%S %p') %></p>
-  <p>Tickets: <%= ticket.num_of_general %></p>
+<div class="container-lrg">
+  <h2>Tickets</h2>
+  <div class="container">
+    <% @tickets.each do |ticket| %>
+      <div class="container-sm">
+        <p><%= link_to "#{ticket.event.name}", event_path(ticket.event), :class => 'user-link' %></p>
+        <p><%= ticket.show.date.strftime('%b %d, %Y') %> <%= ticket.show.time.strftime('%I:%M:%S %p') %></p>
+        <p>Tickets: <%= ticket.num_of_general %></p>
+      </div>
+    <% end %>
+  </div>
 </div>

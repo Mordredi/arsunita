@@ -1,0 +1,10 @@
+<div class="container-lrg">
+  <h2>Following</h2>
+  <div class="container">
+    <% @followings.each do |following| %>
+      <div class="container-sm">
+        <%= link_to "#{following.full_name}", user_path(following), :class => 'user-link' %>
+      </div>
+    <% end %>
+  </div>
+</div>

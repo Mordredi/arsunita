@@ -15,10 +15,7 @@
       </div>
 
       <div class="user-videos">
-        <h2>Videos</h2>
-        <div class="container">
-          <%= render partial: 'videos/video', collection: @videos %>
-        </div>
+          <%= render 'videos/video' %>
       </div>
     <% end %>
   </div>
@@ -42,70 +39,17 @@
   <% if user_profile %>
 
     <div class="user-links">
-      <%= link_to "Friend Requests", '#', 'data-link' => 'friend-requests', :class => 'btn-user btn-user-social' %>
-      <%= link_to "Friends", '#', 'data-link' => 'friends', :class => 'btn-user btn-user-social' %>
-      <%= link_to "Tickets", '#', 'data-link' => 'tickets', :class => 'btn-user btn-user-social' %>
-      <%= link_to "Following", '#', 'data-link' => 'following', :class => 'btn-user btn-user-social' %>
+      <%= link_to "Friend Requests", requests_path, :class => 'btn-user btn-user-social' %>
+      <%= link_to "Friends", friendships_path, :class => 'btn-user btn-user-social' %>
+      <%= link_to "Tickets", tickets_path, :class => 'btn-user btn-user-social' %>
+      <%= link_to "Following", followings_path, :class => 'btn-user btn-user-social' %>
       <%= link_to "Edit Profile", edit_user_path(current_user), :class => 'btn-user' %>
       <% if current_user.arts_worker? %>
-        <%= link_to "Followers", '#', 'data-link' => 'followers', :class => 'btn-user btn-user-social' %>
+        <%= link_to "Followers", followers_path, :class => 'btn-user btn-user-social' %>
         <%= link_to "Create Event", new_event_path, :class => 'btn-user' %>
         <%= link_to "Create Venue", new_venue_path, :class => 'btn-user' %>
         <%= link_to "Add Video", '#', 'data-link' => 'add-video', :class => 'btn-user btn-user-social' %>
       <% end %>
-    </div>
-
-
-    <div id="following" class="container-lrg">
-      <h2>Following</h2>
-      <div class="container">
-        <% current_user.followed_users.each do |followed_user| %>
-          <div class="container-sm">
-            <%= link_to "#{followed_user.full_name}", user_path(followed_user), :class => 'user-link' %>
-          </div>
-        <% end %>
-      </div>
-    </div>
-
-    <% if current_user.arts_worker? %>
-      <div id="followers" class="container-lrg">
-        <h2>Followers</h2>
-        <div class="container">
-          <%= render partial: 'followings/follower', collection: @followers %>
-        </div>
-      </div>
-    <% end %>
-
-    <div id="friend-requests" class="container-lrg">
-      <h2>Friend Requests</h2>
-      <div class="container">
-        <%= render partial: 'friendships/request', collection: @requests %>
-      </div>
-    </div>
-
-    <div id="friends" class="container-lrg">
-      <h2>Friends</h2>
-      <div class="container">
-        <%= render partial: 'friendships/friendship', collection: @friendships %>
-      </div>
-    </div>
-
-    <div id="tickets" class="container-lrg">
-      <h2>Tickets</h2>
-      <div class="container">
-        <%= render partial: 'tickets/ticket', collection: @tickets %>
-      </div>
-    </div>
-
-    <div id="add-video" class="container-lrg">
-      <h2>Add Video</h2>
-      <div class="container">
-        <%= form_for @video, :remote => true do |f| %>
-          <%= f.label :url, "Youtube Video Link" %>
-          <%= f.text_field :url %>
-          <%= f.button %>
-        <% end %>
-      </div>
     </div>
 
   <% end %>

@@ -1,0 +1,7 @@
+$('.lightbox').append("<%= j(render 'friendship') %>");
+$('.user-link').on('click', function(){
+  $('.lightbox').remove();
+});
+$('.lightbox').on('click', function(){
+  $(this).remove();
+});

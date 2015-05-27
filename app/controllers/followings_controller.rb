@@ -1,5 +1,21 @@
 class FollowingsController < ApplicationController
 
+  def index
+    @followings = current_user.followed_users
+
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def followers
+    @followers = current_user.users_following
+
+    respond_to do |format|
+      format.js
+    end
+  end
+
   def create
     @user = User.find(params[:id])
     @followee = current_user.followees.build
@@ -8,10 +24,10 @@ class FollowingsController < ApplicationController
     respond_to do |format|
       if @followee.save
         format.html { redirect_to user_path(@user), :notice => "User followed" }
-        format.js {}
+        format.js
       else
         format.html { render 'show' }
-        format.js {}
+        format.js
       end
     end
   end

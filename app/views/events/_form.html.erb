@@ -3,6 +3,8 @@
   <%= f.text_field :name %>
   <%= f.label :description, "Description of event" %>
   <%= f.text_area :description %>
+  <%= f.label :category_id, "Category" %>
+  <%= f.collection_select(:category_id, @categories, :id, :name) %>
   <%= f.label :price_for_general, "Price for General Tickets" %>
   <%= f.number_field :price_for_general %>
   <%= f.label :start_date, "Event Start" %>

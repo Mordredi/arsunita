@@ -1,8 +1,15 @@
-<% if friendship.friender == current_user %>
-  <% friend = friendship.friendee %>
-<% else %>
-  <% friend = friendship.friender %>
-<% end %>
-<div class="container-sm">
-  <%= link_to "#{friend.full_name}", user_path(friend), :class => 'user-link' %>
+<div id="friends" class="container-lrg">
+  <h2>Friends</h2>
+  <div class="container">
+    <% @friendships.each do |friendship| %>
+      <% if friendship.friender == current_user %>
+        <% friend = friendship.friendee %>
+      <% else %>
+        <% friend = friendship.friender %>
+      <% end %>
+      <div class="container-sm">
+        <%= link_to "#{friend.full_name}", user_path(friend), :class => 'user-link' %>
+      </div>
+    <% end %>
+  </div>
 </div>

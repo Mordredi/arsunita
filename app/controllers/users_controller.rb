@@ -8,13 +8,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @videos = @user.videos
     @event_members = @user.event_members
     if current_user
-      @followers = current_user.users_following
-      @requests = current_user.frienders.where(confirmed: false)
-      @friendships = current_user.confirmed_friends
-      @tickets = current_user.tickets
+
       if current_user.arts_worker?
         @video = current_user.videos.build
       end

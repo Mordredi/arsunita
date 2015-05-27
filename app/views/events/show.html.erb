@@ -15,30 +15,11 @@
       <% end %>
     </div>
     <div class="shows">
+      <ul>
         <% @event.shows.each do |show| %>
-        <div class="show">
-          <p><%= show.date.strftime('%b %d, %Y') %> <%= show.time.strftime('%I:%M:%S %p') %></p>
-          <% if current_user %>
-            <%= form_for @ticket do |f| %>
-              <%= f.hidden_field :show_id, :value => show.id %>
-              <%= f.label :num_of_general, "Tickets" %>
-              <%= f.number_field :num_of_general %>
-              <%= f.button "Buy Tickets" %>
-            <% end %>
-
-            <div class="friends-attending">
-              <h2>Friends Attending</h2>
-              <% show.tickets.each do |ticket| %>
-                <% if current_user.friends.include?(ticket.user) %>
-                  <%= ticket.user.full_name %>
-                <% end %>
-              <% end %>
-            </div>
-          </div>
-        <% else %>
-          <p>Please <%= link_to "login", :login %> or <%= link_to "register", new_user_path %> to buy tickets</p>
+          <li><%= link_to "#{show.date.strftime('%b %d, %Y')} @ #{show.time.strftime('%I:%M:%S %p')}", show_path(show), :class => 'btn-user-social' %></li>
         <% end %>
-      <% end %>
+      </ul>
     </div>
 
     <% if current_user %>

@@ -1,13 +1,11 @@
 class ShowsController < ApplicationController
 
-  # def new
-  #   @show = Show.new
-  # end
-
-  # def show
-  #   @show = Show.find(params[:id])
-  # end
-
-
+  def show
+    @show = Show.find(params[:id])
+    @ticket = @show.tickets.build
+    respond_to do |format|
+      format.js
+    end
+  end
 
 end

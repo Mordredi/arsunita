@@ -1,3 +1,10 @@
-<div class="container-sm">
-  <%= link_to "#{follower.full_name}", user_path(follower), :class => 'user-link' %>
+<div class="container-lrg">
+  <h2>Followers</h2>
+  <div class="container">
+    <% @followers.each do |follower| %>
+      <div class="container-sm">
+        <%= link_to "#{follower.full_name}", user_path(follower), :class => 'user-link' %>
+      </div>
+    <% end %>
+  </div>
 </div>

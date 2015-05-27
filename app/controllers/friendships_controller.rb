@@ -1,5 +1,21 @@
 class FriendshipsController < ApplicationController
 
+  def index
+    @friendships = current_user.confirmed_friends
+
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def requests
+    @requests = current_user.frienders.where(confirmed: false)
+
+    respond_to do |format|
+      format.js
+    end
+  end
+
   def create
     @user = User.find(params[:id])
     @friendee = current_user.friendees.build
@@ -8,10 +24,10 @@ class FriendshipsController < ApplicationController
     respond_to do |format|
       if @friendee.save
         format.html { redirect_to user_path(@user), :notice => "User friended pending acceptance" }
-        format.js {  }
+        format.js
       else
         format.html { render 'show' }
-        format.js {}
+        format.js
       end
     end
 
@@ -23,10 +39,10 @@ class FriendshipsController < ApplicationController
     respond_to do |format|
       if @friendship.save
         format.html { redirect_to user_path(@user), :notice => "User friended pending acceptance" }
-        format.js {}
+        format.js
       else
         format.html { render 'show' }
-        format.js {}
+        format.js
       end
     end
   end
