@@ -16,6 +16,7 @@ class EventsController < ApplicationController
     @event = Event.new
     @venues = Venue.all
     @users = User.where(arts_worker: true)
+    @categories = Category.all
   end
 
   def create

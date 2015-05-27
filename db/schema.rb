@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150527201119) do
+ActiveRecord::Schema.define(version: 20150527202821) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -37,11 +37,12 @@ ActiveRecord::Schema.define(version: 20150527201119) do
     t.datetime "start_date"
     t.datetime "end_date"
     t.integer  "price_for_general"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",                                                                                                                                                                        null: false
+    t.datetime "updated_at",                                                                                                                                                                        null: false
     t.integer  "venue_id"
     t.integer  "user_id"
-    t.integer  "category_id"
+    t.integer  "category_id",       default: 7
+    t.string   "image",             default: "http://upload.wikimedia.org/wikipedia/commons/8/89/The_Main_House_Theatre,_The_Maltings_Theatre_%26_Arts_Centre,_Berwick-upon-Tweed,_March_2009.jpg"
   end
 
   add_index "events", ["category_id"], name: "index_events_on_category_id"
@@ -128,8 +129,9 @@ ActiveRecord::Schema.define(version: 20150527201119) do
     t.string   "country"
     t.decimal  "latitude",     precision: 9, scale: 6
     t.decimal  "longitude",    precision: 9, scale: 6
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
+    t.datetime "created_at",                                                                                                                                                                                           null: false
+    t.datetime "updated_at",                                                                                                                                                                                           null: false
+    t.string   "image",                                default: "http://upload.wikimedia.org/wikipedia/commons/8/89/The_Main_House_Theatre,_The_Maltings_Theatre_%26_Arts_Centre,_Berwick-upon-Tweed,_March_2009.jpg"
   end
 
   add_index "venues", ["user_id"], name: "index_venues_on_user_id"
