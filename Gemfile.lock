@@ -186,6 +186,8 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    simple_calendar (1.1.10)
+      rails (>= 3.0)
     slop (3.6.0)
     sorcery (0.9.1)
       bcrypt (~> 3.1)
@@ -236,6 +238,7 @@ DEPENDENCIES
   rspec-rails (~> 3.0)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
+  simple_calendar (~> 1.1.0)
   sorcery
   spring
   sqlite3
