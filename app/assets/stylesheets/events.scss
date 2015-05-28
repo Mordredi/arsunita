@@ -1,12 +1,62 @@
 .events {
-  background: #fff;
+  display: flex;
+  flex-wrap: wrap;
   margin: .5rem;
-  padding: .5rem;
-  box-shadow: 0 1px 1px #888;
+  padding: 1rem;
+  justify-content: space-between;
   h2 {
     font-size: 1.5rem;
+    text-align: center;
     a{
       color: $dark-primary;
+    }
+  }
+  .no-results{
+    width: 100%;
+  }
+  .event-card {
+    background: #fff;
+    box-shadow: 0 1px 1px #888;
+    padding: 1rem;
+    border: 1px solid #eee;
+    display: flex;
+    justify-content: space-around;
+    height: 8rem;
+    width: 22rem;
+    margin-bottom: 2rem;
+    img{
+      max-width: 30%;
+    }
+  }
+}
+
+.event-index-image{
+  background: url("http://rack.3.mshcdn.com/media/ZgkyMDEzLzEwLzAyLzY5L255Y29wZXJhLmExYmJmLmpwZwpwCXRodW1iCTEyMDB4NjI3IwplCWpwZw/dbb8381e/914/nyc-opera.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 30vw;
+  width: 100vw;
+}
+
+.categories {
+  text-align: center;
+  .category-search {
+    display: flex;
+    width: 60%;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    .btn-category{
+      padding: .5rem;
+      display: inline-block;
+      background: $primary-color;
+      color: #fff;
+      text-shadow: 0 1px 1px #333;
+      width: 9rem;
+      margin-top: .5rem;
+      &:hover {
+        background-color: $dark-primary;
+      }
     }
   }
 }

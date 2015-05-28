@@ -2,4 +2,5 @@ $primary-color: hsl(27, 100%, 50%);
 $background-color: #eee;
 $dark-primary: darken($primary-color, 10%);
 $font-color: #333;
-$contrast-color: hsl(121, 100%, 50%);
+$contrast-color: hsl(95, 84%, 42%);
+$dark-contrast: darken($contrast-color, 10%);

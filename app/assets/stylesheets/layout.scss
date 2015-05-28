@@ -38,8 +38,8 @@ nav {
 main {
   display: flex;
   margin-top: 2.5rem;
-  justify-content: center;
   flex-direction: column;
+  min-height: 94vh;
 }
 
 form {
@@ -54,6 +54,10 @@ form {
     margin: 0;
     padding: 0;
   }
+}
+
+.index-page {
+  display: none;
 }
 
 @media screen and (min-width: 700px) {

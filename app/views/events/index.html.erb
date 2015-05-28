@@ -1,9 +1,16 @@
+<div class="event-index-image"></div>
 <h1>Events</h1>
-<h2>Search by Category</h2>
 <div class="categories">
-  <% @categories.each do |category| %>
-    <%= link_to category.name, events_path, :class => 'btn-category', 'data-category' => category.id %>
-  <% end %>
-  <%= link_to "All", events_path, :class => 'btn-category', 'data-category' => @categories.length + 1 %>
+  <h2>Search by Category</h2>
+  <div class="categories">
+    <div class="category-search">
+      <% @categories.each do |category| %>
+        <%= link_to category.name, events_path, :class => 'btn-category', 'data-category' => category.id %>
+      <% end %>
+      <%= link_to "All", events_path, :class => 'btn-category', 'data-category' => @categories.length + 1 %>
+    </div>
+  </div>
 </div>
-<div class="events"></div>
+<div class="index-page">
+  <div class="events"></div>
+</div>

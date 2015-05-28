@@ -1,15 +1,31 @@
 .venues {
-  background: #fff;
+  display: flex;
+  flex-wrap: wrap;
   margin: .5rem;
-  padding: .5rem;
+  padding: 1rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.venue-card {
+  background: #fff;
   box-shadow: 0 1px 1px #888;
-  h2 {
+  padding: 1rem;
+  border: 1px solid #eee;
+  display: flex;
+  justify-content: space-around;
+  height: 8rem;
+  width: 22rem;
+  margin-bottom: 2rem;
+  img{
+    max-width: 30%;
+  }
+  a{
     font-size: 1.5rem;
-    a{
-      color: $dark-primary;
-    }
+    color: $dark-primary;
   }
 }
+
 
 #map-canvas {
   height: 25rem;

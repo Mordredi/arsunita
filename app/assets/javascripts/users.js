@@ -12,6 +12,15 @@ $(document).on('ready page:load', function(){
 });
 
 $(document).on('ready page:load', function(){
+  $('.add-video').on('click', function(e){
+    e.preventDefault();
+    $('body').append('<div class="lightbox"> </div>');
+    var link = '#' + $(this).attr('data-link');
+    $(link).show();
+  });
+});
+
+$(document).on('ready page:load', function(){
   if($('#edit-profile').length === 1){
     var userId = $('#edit-profile').data('user');
     $('.description').on('click', function(){

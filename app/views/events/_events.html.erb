@@ -1,6 +1,15 @@
-<% @events.each do |event| %>
-  <div class="event-card">
-    <h2><%= link_to "#{event.name}", event_path(event) %></h2>
+<% if @events.length > 0 %>
+  <% @events.each do |event| %>
+    <div class="event-card">
+      <%= image_tag event.image %>
+      <div class="event-card-details">
+        <h2><%= link_to "#{event.name}", event_path(event) %></h2>
+        <p>Starts: <%= event.start_date.strftime("%b %d, %Y") %></p>
+      </div>
+    </div>
+  <% end %>
+<% else %>
+  <div class="no-results">
+    <h2>No events were found in that category</h2>
   </div>
 <% end %>
-

@@ -1,8 +1,10 @@
 #search-results {
   position: absolute;
   top: 2.5rem;
-  background: black;
+  background: #333;
   width: 100%;
+  max-height: 16rem;
+  overflow: scroll;
   color: white;
   text-align: center;
   a{

@@ -25,20 +25,21 @@ button {
 }
 
 .home-page-form {
-  // background: hsla(27, 100%, 50%, .3);
   width: 90%;
   margin: 0 auto;
   border-radius: 5px;
-  // padding: .5rem;
   input {
     margin-bottom: .5rem;
   }
   button{
     color: #fff;
     text-shadow: 0 1px 1px #000;
-    background: hsl(95, 84%, 42%);
+    background: $contrast-color;
     border: none;
     border-radius: 3px;
     padding: .3rem .5rem;
+    &:hover {
+      background: $dark-contrast;
+    }
   }
 }
