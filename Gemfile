@@ -31,7 +31,9 @@ gem 'cocoon'
 gem "figaro"
 gem "autoprefixer-rails"
 gem 'jquery-ui-rails'
-
+gem 'carrierwave'
+gem "fog-aws"
+gem 'mini_magick'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
