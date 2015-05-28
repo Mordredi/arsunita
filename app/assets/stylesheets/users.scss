@@ -33,13 +33,17 @@
     }
   }
   .user-info {
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
     text-align: center;
     h1 {
+      font-size: 3rem;
       margin-bottom: 0;
     }
     .profession {
       margin-top: 0;
-      text-align: center;
     }
   }
 }
@@ -79,10 +83,25 @@
   background: hsla(0, 0%, 0%, .7);
 }
 
-@media screen and (min-width: 700px) {
+.login {
+  margin-top: 3rem;
+}
 
+@media screen and (min-width: 700px) {
 .user-profile {
   width: 80vw;
   margin: 0 auto;
+  .user-info {
+    margin-right: 20%;
+    h1 {
+        text-align: left;
+        font-size: 3rem;
+        margin-bottom: 0;
+      }
+      .profession {
+        text-align: left;
+        margin-top: 0;
+      }
+    }
   }
 }

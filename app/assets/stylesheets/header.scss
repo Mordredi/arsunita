@@ -19,11 +19,12 @@ header {
 .header-user-menu {
   display: flex;
   align-items: center;
-  padding: .2rem;
+  padding: .2rem .5rem;
   margin-right: 1rem;
   color: #fff;
+  text-shadow: 0 1px 1px #333;
   &:hover {
-    border: 1px solid black;
+    background: hsla(0, 0%, 100%, .5);
   }
 }
 .header-links {

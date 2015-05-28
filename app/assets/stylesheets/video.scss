@@ -2,3 +2,8 @@
   height: 9rem;
   width: 16rem;
 }
+.video-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}

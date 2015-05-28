@@ -1,6 +1,7 @@
 <h2>Videos</h2>
-<div class="container">
+<div class="video-container">
   <% @user.videos.each do |video| %>
     <iframe id="player" src="http://www.youtube.com/embed/<%= video.youtube_id %>?fs=1" frameborder="0" class="video"></iframe>
+    <% if current_user.arts_worker? && current_user.profile? %>
   <% end %>
 </div>

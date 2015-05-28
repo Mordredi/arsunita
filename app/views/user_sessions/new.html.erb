@@ -1,11 +1,10 @@
-<div class="container">
+<div class="login">
   <h1>Sign in</h1>
-
-  <%= form_tag user_sessions_path do %>
+  <%= form_tag user_sessions_path, :class => 'login_form' do %>
     <%= label_tag :email, "Email" %>
     <%= email_field_tag :email %>
     <%= label_tag :password, "Password" %>
     <%= password_field_tag :password %>
-    <%= button_tag "Login" %>
+    <%= button_tag "Login", :class => 'btn-login' %>
   <% end %>
 </div>

@@ -9,6 +9,7 @@ function hideIfNothing() {
 $(document).on('ready page:load', function(){
   $('#search-form').on('keyup submit', function(e){
     e.preventDefault();
+    $('#search-results').show()
     searchValue = $('#search').val();
     $.ajax({
       url: '/search?search=' + searchValue,

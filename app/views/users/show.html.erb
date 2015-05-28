@@ -1,34 +1,21 @@
 <div class="user-profile">
-  <% if @user.avatar_url %>
-    <%= image_tag @user.avatar_url(:medium) %>
-  <% else %>
-    <%= image_tag @user.gravatar %>
-  <% end %>
-  <% if current_user && user_profile %>
-    <%= link_to "Change Profile Picture", "#", :class => 'btn-change-avatar' %>
-    <%= form_for @user do |f| %>
-      <%= f.file_field :avatar %>
-      <%= f.hidden_field :avatar_cache %>
-      <%= f.button %>
-    <% end %>
-  <% end %>
+
   <div class="user-info">
-    <h1><%= @user.full_name %></h1>
-    <p class="description"><%= @user.description %></p>
-    <% if @user.arts_worker? %>
-      <p class="profession"><%= @user.profession %></p>
-      <div class="user-events">
-        <h2>Current Events</h2>
-        <%= render @event_members %>
-      </div>
-
-      <div class="user-videos">
-          <%= render 'videos/video' %>
-      </div>
-    <% end %>
+    <div class="profile_image">
+      <% if @user.avatar_url %>
+        <%= image_tag @user.avatar_url(:medium), :class => 'profile-picture' %>
+      <% else %>
+        <%= image_tag @user.gravatar, :class => 'profile-picture' %>
+      <% end %>
+    </div>
+    <div class="name">
+      <h1><%= @user.full_name %></h1>
+      <% if @user.arts_worker? %>
+        <p class="profession"><%= @user.profession %></p>
+      <% end %>
+      <p class="description"><%= @user.description %></p>
+    </div>
   </div>
-
-
   <% if current_user && !user_profile %>
     <div class="social-links">
       <% if @user.arts_worker? %>
@@ -44,34 +31,33 @@
     </div>
   <% end %>
 
-  <% if user_profile %>
+  <% if @user.arts_worker? %>
 
-    <div class="user-links">
-      <%= link_to "Friend Requests", requests_path, :class => 'btn-user btn-user-social' %>
-      <%= link_to "Friends", friendships_path, :class => 'btn-user btn-user-social' %>
-      <%= link_to "Tickets", tickets_path, :class => 'btn-user btn-user-social' %>
-      <%= link_to "Following", followings_path, :class => 'btn-user btn-user-social' %>
-      <%= link_to "Edit Profile", edit_user_path(current_user), :class => 'btn-user' %>
-      <% if current_user.arts_worker? %>
-        <%= link_to "Followers", followers_path, :class => 'btn-user btn-user-social' %>
-        <%= link_to "Create Event", new_event_path, :class => 'btn-user' %>
-        <%= link_to "Create Venue", new_venue_path, :class => 'btn-user' %>
-        <%= link_to "Add Video", '#', 'data-link' => 'add-video', :class => 'btn-add-video' %>
-      <% end %>
+    <div class="user-events">
+      <h2>Current Events</h2>
+      <%= render @event_members %>
     </div>
 
-    <% if current_user.arts_worker? %>
-      <div id="add-video" class="add-video">
-        <h2>Add Video</h2>
-        <div class="container">
-          <%= form_for @video, :remote => true do |f| %>
-            <%= f.label :url, "Youtube Video Link" %>
-            <%= f.text_field :url %>
-            <%= f.button %>
-          <% end %>
-         </div>
-       </div>
-     <% end %>
+    <div class="user-videos">
+      <%= render 'videos/video' %>
+    </div>
+
+  <% end %>
+
+  <% if user_profile && current_user.arts_worker? %>
+
+    <%= link_to "Add Video", '#', 'data-link' => 'add-video', :class => 'btn-add-video' %>
+
+    <div id="add-video" class="add-video">
+      <h2>Add Video</h2>
+      <div class="container">
+        <%= form_for @video, :remote => true do |f| %>
+          <%= f.label :url, "Youtube Video Link" %>
+          <%= f.text_field :url %>
+          <%= f.button %>
+        <% end %>
+      </div>
+    </div>
 
   <% end %>
 

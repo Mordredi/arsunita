@@ -1,26 +1,28 @@
-<div id="search-results">
-  <div class="search-container">
-    <h3>Users</h3>
-    <% @users.each do |user| %>
-      <div class="search-user">
+<div class="search-container">
+  <h3>Users</h3>
+  <% @users.each do |user| %>
+    <div class="search-user">
+      <% if user.avatar_url %>
+        <%= image_tag user.avatar_url(:thumb), :class => 'search-image' %><%= link_to user.full_name, user_path(user) %>
+      <% else %>
         <%= image_tag user.gravatar, :class => 'search-gravatar' %><%= link_to user.full_name, user_path(user) %>
-      </div>
-    <% end %>
-  </div>
-  <div class="search-container">
-  <h3>Events</h3>
-    <% @events.each do |event| %>
-      <div class="search-event">
-        <%= link_to event.name, event_path(event) %>
-      </div>
-    <% end %>
-  </div>
-  <div class="search-container">
-    <h3>Venues</h3>
-    <% @venues.each do |venue| %>
-      <div class="search-venue">
-        <%= link_to venue.name, venue_path(venue) %>
-      </div>
-    <% end %>
-  </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+<div class="search-container">
+<h3>Events</h3>
+  <% @events.each do |event| %>
+    <div class="search-event">
+      <%= link_to event.name, event_path(event) %>
+    </div>
+  <% end %>
+</div>
+<div class="search-container">
+  <h3>Venues</h3>
+  <% @venues.each do |venue| %>
+    <div class="search-venue">
+      <%= link_to venue.name, venue_path(venue) %>
+    </div>
+  <% end %>
 </div>

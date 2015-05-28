@@ -11,7 +11,7 @@ class UserSessionsController < ApplicationController
        redirect_to user_url(@user), :notice => 'Login successful'
     else
       flash.now[:alert] = 'Login failed'
-      render action: 'new'
+      render 'new'
     end
   end
 
