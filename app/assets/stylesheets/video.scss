@@ -7,3 +7,11 @@
   flex-wrap: wrap;
   justify-content: space-around;
 }
+
+.video-card {
+  display: flex;
+  flex-direction: column;
+  a {
+    text-align: center;
+  }
+}

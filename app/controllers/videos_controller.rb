@@ -14,6 +14,16 @@ class VideosController < ApplicationController
     end
   end
 
+  def destroy
+    video = Video.find(params[:id])
+    respond_to do |format|
+      if video.delete
+        format.html { redirect_to user_path(current_user) }
+        format.js
+      end
+    end
+  end
+
   private
 
   def video_params

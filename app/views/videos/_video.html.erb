@@ -1,7 +1,11 @@
 <h2>Videos</h2>
 <div class="video-container">
   <% @user.videos.each do |video| %>
-    <iframe id="player" src="http://www.youtube.com/embed/<%= video.youtube_id %>?fs=1" frameborder="0" class="video"></iframe>
-    <% if current_user.arts_worker? && current_user.profile? %>
+    <div class="video-card">
+      <iframe id="player" src="http://www.youtube.com/embed/<%= video.youtube_id %>?fs=1" frameborder="0" class="video"></iframe>
+      <% if current_user.arts_worker? && user_profile %>
+        <%= link_to "Delete video", video_path(video), :class => 'delete-video', :method => :delete %>
+      <% end %>
+    </div>
   <% end %>
 </div>
