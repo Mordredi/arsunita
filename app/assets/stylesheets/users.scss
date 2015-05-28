@@ -44,8 +44,7 @@
   }
 }
 
-.container-lrg {
-  display: none;
+.add-video, .container-lrg {
   position: absolute;
   top: 25vh;
   left: 25vw;
@@ -65,6 +64,10 @@
     border: 1px solid black;
     width: 30%;
   }
+}
+
+.add-video {
+  display: none;
 }
 
 .lightbox {

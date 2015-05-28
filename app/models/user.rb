@@ -28,6 +28,8 @@ class User < ActiveRecord::Base
 
   has_many :videos
 
+  after_validation :gravatar
+
   def full_name
     "#{first_name} #{last_name}"
   end
@@ -44,12 +46,12 @@ class User < ActiveRecord::Base
     arts_worker
   end
 
-  def confirmed_friends
-    friendees.where(confirmed: true) + frienders.where(confirmed:true)
+  def gravatar
+    self.avatar = "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(email.strip.downcase)}?d=mm"
   end
 
-  def gravatar
-    "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(email.strip.downcase)}?d=mm"
+  def confirmed_friends
+    friendees.where(confirmed: true) + frienders.where(confirmed:true)
   end
 
 end

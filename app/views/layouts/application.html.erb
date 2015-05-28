@@ -17,7 +17,7 @@
     <% end %>
     <% if current_user %>
       <div id="header-user-menu" class="header-user-menu">
-        <%= image_tag "#{current_user.gravatar}", :class => 'header-user-gravatar' %>
+        <%= image_tag "#{current_user.avatar}", :class => 'header-user-gravatar' %>
         <span class="header-user-name"><%= current_user.full_name %></span>
       </div>
     <% else %>
@@ -48,13 +48,11 @@
   <% if flash[:notice] %>
     <div class="flash notice">
       <p><%= flash[:notice] %></p>
-      <%= link_to 'X', '#', :id => 'close' %>
     </div>
 
   <% elsif flash[:alert] %>
     <div class="flash alert">
       <p><%= flash[:alert] %></p>
-      <%= link_to 'X', '#', :id => 'close' %>
     </div>
   <% end %>
   <main>

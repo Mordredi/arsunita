@@ -1,5 +1,5 @@
 <div class="user-profile">
-  <%= image_tag @user.gravatar %>
+  <%= image_tag @user.avatar %>
   <% if current_user && user_profile %>
     <div class="user-info" id="edit-profile" data-user=<%= current_user.id %>>
   <% else %>
@@ -48,20 +48,22 @@
         <%= link_to "Followers", followers_path, :class => 'btn-user btn-user-social' %>
         <%= link_to "Create Event", new_event_path, :class => 'btn-user' %>
         <%= link_to "Create Venue", new_venue_path, :class => 'btn-user' %>
-        <%= link_to "Add Video", '#', 'data-link' => 'add-video', :class => 'add-video' %>
+        <%= link_to "Add Video", '#', 'data-link' => 'add-video', :class => 'btn-add-video' %>
       <% end %>
     </div>
 
-    <div id="add-video" class="container-lrg">
-      <h2>Add Video</h2>
-      <div class="container">
-        <%= form_for @video, :remote => true do |f| %>
-          <%= f.label :url, "Youtube Video Link" %>
-          <%= f.text_field :url %>
-          <%= f.button %>
-        <% end %>
+    <% if current_user.arts_worker? %>
+      <div id="add-video" class="add-video">
+        <h2>Add Video</h2>
+        <div class="container">
+          <%= form_for @video, :remote => true do |f| %>
+            <%= f.label :url, "Youtube Video Link" %>
+            <%= f.text_field :url %>
+            <%= f.button %>
+          <% end %>
+         </div>
        </div>
-     </div>
+     <% end %>
 
   <% end %>
 

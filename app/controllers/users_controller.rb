@@ -10,7 +10,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @event_members = @user.event_members
     if current_user
-
       if current_user.arts_worker?
         @video = current_user.videos.build
       end
