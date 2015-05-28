@@ -31,7 +31,7 @@ gem 'cocoon'
 gem "figaro"
 gem "autoprefixer-rails"
 gem 'jquery-ui-rails'
-gem 'carrierwave'
+gem 'carrierwave', :git => 'git@github.com:carrierwaveuploader/carrierwave.git'
 gem "fog-aws"
 gem 'mini_magick'
 # Use ActiveModel has_secure_password

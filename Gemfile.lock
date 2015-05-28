@@ -1,3 +1,13 @@
+GIT
+  remote: git@github.com:carrierwaveuploader/carrierwave.git
+  revision: a1b96d05d021f0ab53c8a2ef460bc96664e52b79
+  specs:
+    carrierwave (0.10.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -51,11 +61,6 @@ GEM
     builder (3.2.2)
     byebug (5.0.0)
       columnize (= 0.9.0)
-    carrierwave (0.10.0)
-      activemodel (>= 3.2.0)
-      activesupport (>= 3.2.0)
-      json (>= 1.7)
-      mime-types (>= 1.16)
     cocoon (1.2.6)
     coderay (1.1.0)
     coffee-rails (4.1.0)
@@ -252,7 +257,7 @@ DEPENDENCIES
   autoprefixer-rails
   better_errors
   byebug
-  carrierwave
+  carrierwave!
   cocoon
   factory_girl_rails
   faker

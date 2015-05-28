@@ -12,6 +12,12 @@ $(document).on('ready page:load', function(){
 });
 
 $(document).on('ready page:load', function(){
+  $('.btn-change-avatar').on('click', function(){
+
+  });
+});
+
+$(document).on('ready page:load', function(){
   $('.btn-add-video').on('click', function(e){
     e.preventDefault();
     $('body').append('<div class="lightbox"> </div>');

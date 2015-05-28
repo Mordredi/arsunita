@@ -17,7 +17,11 @@
     <% end %>
     <% if current_user %>
       <div id="header-user-menu" class="header-user-menu">
-        <%= image_tag "#{current_user.avatar}", :class => 'header-user-gravatar' %>
+        <% if current_user.avatar_url %>
+          <%= image_tag "#{current_user.avatar_url(:thumb)}", :class => 'header-user-gravatar' %>
+        <% else %>
+          <%= image_tag "#{current_user.gravatar}", :class => 'header-user-gravatar' %>
+        <% end %>
         <span class="header-user-name"><%= current_user.full_name %></span>
       </div>
     <% else %>

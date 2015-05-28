@@ -1,10 +1,18 @@
 <div class="user-profile">
-  <%= image_tag @user.avatar %>
-  <% if current_user && user_profile %>
-    <div class="user-info" id="edit-profile" data-user=<%= current_user.id %>>
+  <% if @user.avatar_url %>
+    <%= image_tag @user.avatar_url(:medium) %>
   <% else %>
-    <div class="user-info">
+    <%= image_tag @user.gravatar %>
   <% end %>
+  <% if current_user && user_profile %>
+    <%= link_to "Change Profile Picture", "#", :class => 'btn-change-avatar' %>
+    <%= form_for @user do |f| %>
+      <%= f.file_field :avatar %>
+      <%= f.hidden_field :avatar_cache %>
+      <%= f.button %>
+    <% end %>
+  <% end %>
+  <div class="user-info">
     <h1><%= @user.full_name %></h1>
     <p class="description"><%= @user.description %></p>
     <% if @user.arts_worker? %>
