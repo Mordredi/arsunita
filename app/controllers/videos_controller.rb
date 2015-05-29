@@ -15,6 +15,7 @@ class VideosController < ApplicationController
   end
 
   def destroy
+    @user = current_user
     video = Video.find(params[:id])
     respond_to do |format|
       if video.delete

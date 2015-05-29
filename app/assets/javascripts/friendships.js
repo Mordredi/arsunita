@@ -13,7 +13,7 @@ $(document).on('ready page:load', function(){
 });
 
 $(document).on('ready page:load', function(){
-  $('.confirm').on('click', function(e){
+  $(document).on('click','.confirm', function(e){
     e.preventDefault();
     $(this).parent().remove();
     $(this).hide();

@@ -37,21 +37,24 @@
 
     <div class="user-videos">
       <%= render 'videos/video' %>
+    </div>
+
       <% if user_profile && current_user.arts_worker? %>
         <div class="user-links">
           <%= link_to "Add Video", '#', 'data-link' => 'add-video', :class => 'btn-add-video' %>
         </div>
-        <div id="add-video" class="add-video">
-          <h2>Add Video</h2>
-          <div class="container">
-            <%= form_for @video, :remote => true do |f| %>
-              <%= f.label :url, "Youtube Video Link" %>
-              <%= f.text_field :url %>
-              <%= f.button %>
-            <% end %>
-          </div>
-        </div>
       <% end %>
+
+      <div id="add-video" class="add-video">
+        <h2>Add Video</h2>
+        <div class="container">
+          <%= form_for @video, :remote => true do |f| %>
+            <%= f.label :url, "Youtube Video Link" %>
+            <%= f.text_field :url %>
+            <%= f.button %>
+          <% end %>
+        </div>
+      </div>
     </div>
   <% end %>
 

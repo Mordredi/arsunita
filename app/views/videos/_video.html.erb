@@ -4,7 +4,7 @@
     <div class="video-card">
       <iframe id="player" src="http://www.youtube.com/embed/<%= video.youtube_id %>?fs=1" frameborder="0" class="video"></iframe>
       <% if current_user.arts_worker? && user_profile %>
-        <%= link_to "Delete video", video_path(video), :class => 'delete-video', :method => :delete %>
+        <%= link_to "Delete video", video_path(video), :class => 'delete-video', :method => :delete, :remote => true %>
       <% end %>
     </div>
   <% end %>
