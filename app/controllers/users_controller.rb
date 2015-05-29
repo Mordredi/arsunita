@@ -17,8 +17,7 @@ class UsersController < ApplicationController
   end
 
   def new
-    binding.pry
-    if params[:arts_worker] == true
+    if params[:arts_worker] == "true"
       @artist = true
     end
       @user = User.new

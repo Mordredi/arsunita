@@ -7,5 +7,5 @@
 <% if @artist %>
   <%= f.label :profession, "Profession" %>
   <%= f.text_field :profession %>
-  <%= f.hidden_field :arts_worker, true %>
+  <%= f.hidden_field :arts_worker, :value => true %>
 <% end %>
