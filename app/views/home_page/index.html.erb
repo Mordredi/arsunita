@@ -2,6 +2,11 @@
   <div class="home-page-welcome">
     <h1>Welcome to ArsUnita!</h1>
     <p>This is a site for those who work in the arts and those who enjoy the arts.</p>
+
+    <p><%= link_to "Register", new_user_path(arts_worker: true) %> today as an arts worker to start building an online image and generate a following.</p>
+
+    <p class="or-break">OR</p>
+
     <p><%= link_to "Sign up", new_user_path %> today to start discovering what artists in your area are up to. If you find someone who's work intrigues you follow them and keep up to date with their future endeavours!</p>
   </div>
   <%= form_tag user_sessions_path, :class => 'home-page-form' do %>

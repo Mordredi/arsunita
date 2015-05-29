@@ -1,8 +1,11 @@
 .home-page-welcome {
   padding: .3rem 1rem .5em;
-  a {
-    color: $primary-color;
-  }
+}
+
+.or-break {
+  text-align: center;
+  font-size: 2.5rem;
+  color: $primary-color;
 }
 
 @media screen and (min-width: 700px) {

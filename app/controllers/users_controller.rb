@@ -17,7 +17,11 @@ class UsersController < ApplicationController
   end
 
   def new
-    @user = User.new
+    binding.pry
+    if params[:arts_worker] == true
+      @artist = true
+    end
+      @user = User.new
   end
 
   def create
