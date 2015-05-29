@@ -31,6 +31,9 @@ class EventsController < ApplicationController
   end
 
   def create
+    @users = User.all
+    @venues = Venue.all
+    @categories = Category.all
     @event = current_user.events.build(event_params)
     if @event.save
       redirect_to event_url(@event), :notice => 'Created Event'
