@@ -42,13 +42,16 @@
 .search-form {
   position: absolute;
   z-index: 15;
-  top:0;
-  right: 12rem;
+  top:2rem;
+  left: 0;
   height: 2.5rem;
 }
 
 @media screen and (min-width: 700px) {
   .search-form {
+    top:0;
+    left:inherit;
+    right: 12rem;
   }
 
   #search-results {

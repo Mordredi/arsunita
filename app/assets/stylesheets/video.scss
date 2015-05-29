@@ -1,19 +1,22 @@
-.video {
-  height: 9rem;
-  width: 16rem;
-}
-.video-container {
-  width: 40rem;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
+@media screen and (min-width: 700px){
 
-.video-card {
-  margin-top: 1rem;
-  display: flex;
-  flex-direction: column;
-  a {
-    text-align: center;
+  .video {
+    height: 9rem;
+    width: 16rem;
   }
+  .video-container {
+    width: 40rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .video-card {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    a {
+      text-align: center;
+    }
+}
 }
