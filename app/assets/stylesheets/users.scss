@@ -40,6 +40,7 @@
   }
   .social-links {
     text-align: center;
+    width: 20rem;
     a {
       padding: .5rem;
     }
@@ -47,6 +48,10 @@
   .user-links {
     text-align: center;
   }
+}
+
+.name {
+  width: 30rem;
 }
 
 .user-videos {

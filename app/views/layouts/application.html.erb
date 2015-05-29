@@ -11,7 +11,12 @@
 </head>
 <body>
   <header>
-    <%= link_to "ArsUnita", root_path, :class => 'logo' %>
+    <% if current_user %>
+      <%= link_to "ArsUnita", user_path(current_user), :class => 'logo' %>
+    <% else %>
+      <%= link_to "ArsUnita", root_path, :class => 'logo' %>
+    <% end %>
+
     <%= form_tag search_path, :method => :get, :id => 'search-form', :class => 'search-form' do %>
       <%= search_field_tag :search, params[:search], :placeholder => 'Search...' %>
     <% end %>
@@ -27,15 +32,6 @@
     <% else %>
       <%= link_to "☰", "#", :id => 'menu', :class => 'menu' %>
     <% end %>
-    <div class="header-links">
-      <ul>
-        <li><%= link_to "Register", new_user_path %></li>
-        <li><%= link_to "Login", :login %></li>
-        <li><%= link_to "Users", users_path %></li>
-        <li><%= link_to "Venues", venues_path %></li>
-        <li><%= link_to "Events", events_path %></li>
-      </ul>
-    </div>
   </header>
   <div id="search-results"></div>
   <% if flash[:notice] %>
@@ -49,8 +45,8 @@
     </div>
   <% end %>
   <main>
-    <% if current_user %>
-      <section id="sidebar" class="sidebar">
+    <section id="sidebar" class="sidebar">
+      <% if current_user %>
         <div class="sidebar-image">
           <% if current_user.avatar_url %>
             <%= link_to image_tag(current_user.avatar_url), user_path(current_user) %>
@@ -68,12 +64,15 @@
           <%= link_to "Create Event", new_event_path, :class => 'btn-user' %>
           <%= link_to "Create Venue", new_venue_path, :class => 'btn-user' %>
         <% end %>
+      <% else %>
+        <%= link_to "Register", new_user_path %>
+        <%= link_to "Login", :login %>
+      <% end %>
         <%= link_to "Users", users_path %>
         <%= link_to "Venues", venues_path %>
         <%= link_to "Events", events_path %>
         <%= link_to "Logout", :logout, :method => :post %>
       </section>
-    <% end %>
     <%= yield %>
   </main>
 </body>

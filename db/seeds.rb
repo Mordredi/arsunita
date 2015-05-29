@@ -5,6 +5,15 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+User.delete_all
+Event.delete_all
+Show.delete_all
+Ticket.delete_all
+Friendship.delete_all
+Following.delete_all
+EventMember.delete_all
+Video.delete_all
+
 10.times do
   User.create({
     email: Faker::Internet.email,
@@ -31,14 +40,13 @@ end
 end
 
 20.times do
-  Event.create({
+  User.all.sample.events.create({
     name: Faker::App.name,
     description: Faker::Company.bs,
     start_date: Faker::Date.between(Date.today, 10.days.from_now),
     end_date: Faker::Date.between(11.days.from_now, 40.days.from_now),
     price_for_general: 15,
-    venue_id: Venue.all.sample,
-    user_id: User.all.sample,
-    category_id: Category.all.sample
+    venue: Venue.all.sample,
+    category: Category.all.sample
     })
 end

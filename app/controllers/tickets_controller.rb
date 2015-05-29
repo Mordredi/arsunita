@@ -10,10 +10,15 @@ class TicketsController < ApplicationController
   def create
     @ticket = current_user.tickets.build(ticket_params)
     @event = @ticket.event
-    if @ticket.save
-      redirect_to event_url(@event), :notice => 'Tickets were purchased'
-    else
-      redirect_to event_url(@event), :alert => 'Error purchasing tickets'
+
+    respond_to do |format|
+      if @ticket.save
+        format.html { redirect_to event_url(@event), :notice => 'Tickets were purchased' }
+        format.js
+      else
+        format.html { redirect_to event_url(@event), :alert => 'Error purchasing tickets' }
+        format.js
+      end
     end
   end
 

@@ -2,7 +2,7 @@
   <h2><%= @show.event.name %> <%= @show.date.strftime('%b %d, %Y') %> @ <%= @show.time.strftime('%I:%M:%S %p') %></h2>
   <div class="container">
   <% if current_user %>
-    <%= form_for @ticket do |f| %>
+    <%= form_for @ticket, :remote => true do |f| %>
       <%= f.hidden_field :show_id, :value => @show.id %>
       <%= f.label :num_of_general, "Tickets" %>
       <%= f.number_field :num_of_general %>
