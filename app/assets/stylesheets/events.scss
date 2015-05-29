@@ -62,13 +62,40 @@
 }
 
 .event {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 3rem;
   background: #fff;
   width: 75vw;
+  min-height: 94vh;
   margin: 0 auto;
+  .event-image {
+    width: 20rem;
+    img {
+      max-width: 100%;
+    }
+  }
   .event-info {
     text-align: center;
+    width: 30rem;
+    h1 {
+      font-size: 3rem;
+    }
+  }
+  .featuring {
+    width: 25rem;
+    text-align: center;
     h2 {
-      font-size: 1.5rem;
+      font-size: 2rem;
+    }
+  }
+  .shows {
+    overflow: scroll;
+    text-align: center;
+    width: 25rem;
+    h2 {
+      font-size: 2rem;
     }
   }
 }

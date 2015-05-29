@@ -6,7 +6,8 @@
     <%= f.text_field :profession %>
   <% end %>
   <%= f.label :avatar, "Avatar" %>
-  <%= f.text_field :avatar %>
+  <%= f.file_field :avatar %>
+  <%= f.hidden_field :avatar_cache %>
   <%= f.button %>
 <% end %>
 </div>

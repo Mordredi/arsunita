@@ -1,20 +1,17 @@
 <div class="user-profile">
-
-  <div class="user-info">
-    <div class="profile_image">
-      <% if @user.avatar_url %>
-        <%= image_tag @user.avatar_url(:medium), :class => 'profile-picture' %>
-      <% else %>
-        <%= image_tag @user.gravatar, :class => 'profile-picture' %>
-      <% end %>
-    </div>
-    <div class="name">
-      <h1><%= @user.full_name %></h1>
-      <% if @user.arts_worker? %>
-        <p class="profession"><%= @user.profession %></p>
-      <% end %>
-      <p class="description"><%= @user.description %></p>
-    </div>
+  <div class="profile-image">
+    <% if @user.avatar_url %>
+      <%= image_tag @user.avatar_url, :class => 'profile-picture' %>
+    <% else %>
+      <%= image_tag @user.gravatar, :class => 'profile-picture' %>
+    <% end %>
+  </div>
+  <div class="name">
+    <h1><%= @user.full_name %></h1>
+    <% if @user.arts_worker? %>
+      <p class="profession"><%= @user.profession %></p>
+    <% end %>
+    <p class="description"><%= @user.description %></p>
   </div>
   <% if current_user && !user_profile %>
     <div class="social-links">
@@ -40,25 +37,22 @@
 
     <div class="user-videos">
       <%= render 'videos/video' %>
+      <% if user_profile && current_user.arts_worker? %>
+        <div class="user-links">
+          <%= link_to "Add Video", '#', 'data-link' => 'add-video', :class => 'btn-add-video' %>
+        </div>
+        <div id="add-video" class="add-video">
+          <h2>Add Video</h2>
+          <div class="container">
+            <%= form_for @video, :remote => true do |f| %>
+              <%= f.label :url, "Youtube Video Link" %>
+              <%= f.text_field :url %>
+              <%= f.button %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
     </div>
-
-  <% end %>
-
-  <% if user_profile && current_user.arts_worker? %>
-
-    <%= link_to "Add Video", '#', 'data-link' => 'add-video', :class => 'btn-add-video' %>
-
-    <div id="add-video" class="add-video">
-      <h2>Add Video</h2>
-      <div class="container">
-        <%= form_for @video, :remote => true do |f| %>
-          <%= f.label :url, "Youtube Video Link" %>
-          <%= f.text_field :url %>
-          <%= f.button %>
-        <% end %>
-      </div>
-    </div>
-
   <% end %>
 
 </div>

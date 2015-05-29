@@ -26,8 +26,51 @@
   }
 }
 
+.venue {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background: #fff;
+  min-height: 94vh;
+  width: 80%;
+  margin: 0 auto;
+  padding: 3rem;
+  .venue-info-container {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin-bottom: 2rem;
+  }
+  h1 {
+    font-size: 2.5rem;
+  }
+  .venue-image-container {
+    width: 20rem;
+  }
+  .venue-image {
+    max-width:100%;
+  }
+}
+
+.venue-events {
+  width: 30rem;
+  height: 20rem;
+  text-align: center;
+  overflow: scroll;
+  h2 {
+    font-size: 2rem;
+  }
+}
+
+.venue-event {
+  margin-top: 1rem;
+}
+
+.map-container {
+  width: 25rem;
+}
 
 #map-canvas {
-  height: 25rem;
-  width: 25rem;
+  height: 20rem;
+  width: 20rem;
 }

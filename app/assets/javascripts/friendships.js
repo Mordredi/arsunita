@@ -17,7 +17,6 @@ $(document).on('ready page:load', function(){
     e.preventDefault();
     $(this).parent().remove();
     $(this).hide();
-
     var url = $(this).attr('href');
     $.ajax({
       url: url,

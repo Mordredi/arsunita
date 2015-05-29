@@ -1,11 +1,16 @@
 <div class="event">
-  <h1><%= @event.name %></h1>
+  <div class="event-image">
+    <%= image_tag @event.image %>
+  </div>
   <div class="event-info">
+    <h1><%= @event.name %></h1>
     <p><%= @event.description %></p>
     <p><%= @event.venue.name %></p>
     <p>Starts: <%= @event.start_date.strftime("%b %d, %Y") %></p>
     <p>Ends: <%= @event.end_date.strftime("%b %d, %Y") %></p>
     <p>General Tickets: $<%= @event.price_for_general %></p>
+  </div>
+  <div class="featuring">
     <h2>Featuring</h2>
     <div class="event-members">
       <% @event.event_members.each do |event_member| %>
@@ -14,13 +19,15 @@
         </div>
       <% end %>
     </div>
-    <div class="shows">
-      <ul>
-        <% @event.shows.each do |show| %>
-          <li><%= link_to "#{show.date.strftime('%b %d, %Y')} @ #{show.time.strftime('%I:%M:%S %p')}", show_path(show), :class => 'btn-user-social' %></li>
-        <% end %>
-      </ul>
-    </div>
+  </div>
+  <div class="shows">
+    <h2>Shows</h2>
+    <ul>
+      <% @event.shows.each do |show| %>
+        <li><%= link_to "#{show.date.strftime('%b %d, %Y')} @ #{show.time.strftime('%I:%M:%S %p')}", show_path(show), :class => 'btn-user-social' %></li>
+      <% end %>
+    </ul>
+  </div>
 
     <% if current_user %>
       <% if owner?(@event) %>
@@ -29,5 +36,4 @@
       <% end %>
     <% end %>
 
-  </div>
 </div>

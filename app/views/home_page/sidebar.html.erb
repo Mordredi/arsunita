@@ -1,0 +1,20 @@
+<% if current_user %>
+ <sidebar>
+   <%= link_to "Change Profile Picture", "#", :class => 'btn-change-avatar' %>
+   <%= link_to "Friend Requests", requests_path, :class => 'btn-user btn-user-social' %>
+#   <%= link_to "Friends", friendships_path, :class => 'btn-user btn-user-social' %>
+#   <%= link_to "Tickets", tickets_path, :class => 'btn-user btn-user-social' %>
+#   <%= link_to "Following", followings_path, :class => 'btn-user btn-user-social' %>
+#   <%= link_to "Edit Profile", edit_user_path(current_user), :class => 'btn-user' %>
+#   <% if current_user.arts_worker? %>
+#     <%= link_to "Followers", followers_path, :class => 'btn-user btn-user-social' %>
+#     <%= link_to "Create Event", new_event_path, :class => 'btn-user' %>
+#     <%= link_to "Create Venue", new_venue_path, :class => 'btn-user' %>
+#     <%= form_for @user do |f| %>
+#       <%= f.file_field :avatar %>
+#       <%= f.hidden_field :avatar_cache %>
+#       <%= f.button %>
+#     <% end %>
+#   <% end %>
+# </sidebar>
+# <% end %>

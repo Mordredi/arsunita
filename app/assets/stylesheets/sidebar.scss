@@ -1,0 +1,33 @@
+.sidebar {
+  position: fixed;
+  top: 2.5rem;
+  right: -20rem;
+  display: flex;
+  flex-direction: column;
+  background: hsla(27, 100%, 50%, .8);
+  width: 20rem;
+  text-align: center;
+  height: 94vh;
+  transition: all 700ms ease-out;
+  a {
+    color: #fff;
+    text-shadow: 0 1px 1px #000;
+    padding: .5rem 1rem;
+  }
+  &.open {
+    right: 0;
+  }
+}
+
+.sidebar-image {
+  max-width: 10rem;
+  margin: 1rem auto 0;
+  a {
+    padding: 0;
+  }
+  img{
+    margin: 0;
+    max-width: 100%;
+    box-shadow: 0 2px 1px $dark-primary;
+  }
+}

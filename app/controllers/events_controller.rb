@@ -44,9 +44,13 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @venues = Venue.all
     @users = User.where(arts_worker: true)
+    @categories = Category.all
   end
 
   def update
+    @users = User.where(arts_worker: true)
+    @venues = Venue.all
+    @categories = Category.all
     @event = Event.find(params[:id])
     if @event.update_attributes(event_params)
       redirect_to event_url(@event), :notice => 'Event updated'
@@ -66,7 +70,7 @@ class EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(
-      :name, :description, :start_date, :end_date, :price_for_general, :venue_id, :category_id,
+      :name, :description, :start_date, :end_date, :price_for_general, :venue_id, :category_id, :image,
       :shows_attributes => [:id, :date, :time, :_destroy],
       :event_members_attributes => [:role, :admin, :user_id, :_destroy]
     )

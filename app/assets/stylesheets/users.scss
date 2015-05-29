@@ -1,19 +1,39 @@
 .users {
-  background: #fff;
-  margin: .5rem;
-  padding: .5rem;
-  box-shadow: 0 1px 1px #888;
-  h2 {
-    font-size: 1.5rem;
-    a{
-      color: $dark-primary;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  .user-card {
+    width: 25rem;
+    height: 8rem;
+    background: #fff;
+    margin: .5rem;
+    padding: .5rem;
+    box-shadow: 0 1px 1px #888;
+    h2 {
+      font-size: 1.5rem;
+      a{
+        color: $dark-primary;
+      }
     }
   }
 }
 
 .user-profile {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  min-height: 93vh;
   background: #fff;
-  padding: .5rem;
+  padding: 2rem;
+  h1 {
+    font-size: 3rem;
+  }
+  .profile-image {
+    width: 20rem;
+    .profile-picture {
+      max-width: 100%;
+    }
+  }
   h2 {
     font-size: 1.5rem;
     text-align: center;
@@ -25,27 +45,20 @@
     }
   }
   .user-links {
-    width: 50%;
-    margin: 0 auto;
     text-align: center;
-    a {
-      padding: .5rem;
-    }
   }
-  .user-info {
-    margin-top: 2rem;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    text-align: center;
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 0;
-    }
-    .profession {
-      margin-top: 0;
-    }
-  }
+}
+
+.user-videos {
+  width: 40rem;
+  height: 15rem;
+  overflow: hidden;
+}
+
+.user-events {
+  width: 20rem;
+  height: 15rem;
+  overflow: hidden;
 }
 
 .add-video, .container-lrg {
@@ -91,17 +104,5 @@
 .user-profile {
   width: 80vw;
   margin: 0 auto;
-  .user-info {
-    margin-right: 20%;
-    h1 {
-        text-align: left;
-        font-size: 3rem;
-        margin-bottom: 0;
-      }
-      .profession {
-        text-align: left;
-        margin-top: 0;
-      }
-    }
-  }
+}
 }
