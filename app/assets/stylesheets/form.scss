@@ -20,10 +20,6 @@ select, input, textarea {
   margin-bottom: 1rem;
 }
 
-button {
-  font-size: 1.2rem;
-}
-
 .home-page-form {
   width: 90%;
   margin: 0 auto;
@@ -33,7 +29,8 @@ button {
   }
 }
 
-.btn-login {
+button, .btn-login {
+    font-size: 1.2rem;
     color: #fff;
     text-shadow: 0 1px 1px #000;
     background: $contrast-color;

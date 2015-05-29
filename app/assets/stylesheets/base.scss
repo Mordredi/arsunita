@@ -5,7 +5,9 @@ body {
 }
 
 h1 {
-  font-size: 1.5rem;
+  color: $primary-color;
+  text-shadow: 0 1px 1px #333;
+  font-size: 2.5rem;
   text-align: center;
   margin-bottom: .5rem;
 }
@@ -16,8 +18,11 @@ p {
 }
 
 a {
-  color: $dark-primary;
+  color: $primary-color;
   text-decoration: none;
+  &:hover {
+    color: $dark-primary;
+  }
 }
 
 img {

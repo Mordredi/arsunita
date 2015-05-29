@@ -4,4 +4,8 @@
 <%= f.text_field :last_name %>
 <%= f.label :description, "Description" %>
 <%= f.text_area :description %>
-
+<% if @artist %>
+  <%= f.label :profession, "Profession" %>
+  <%= f.text_field :profession %>
+  <%= f.hidden_field :arts_worker, :value => true %>
+<% end %>
