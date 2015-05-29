@@ -36,6 +36,10 @@
   background-size: cover;
   height: 30vw;
   width: 100vw;
+  transition: all 300ms ease-out;
+  &.slide-up {
+    height: 0;
+  }
 }
 
 .categories {

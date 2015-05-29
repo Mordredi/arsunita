@@ -6,14 +6,17 @@
   z-index: 10;
   border-radius: 10px;
   color: #fff;
+  text-align: center;
 }
 
 .notice {
+  color: #fff;
   background: hsla(114, 100%, 38%, .9);
   border: 1px solid green;
 }
 
 .alert {
+  color: #fff;
   background: hsla(0, 100%, 49%, .9);
   border: 1px solid red;
 }
