@@ -1,4 +1,5 @@
 class CompaniesController < ApplicationController
+  skip_before_filter :require_login, only: [:index, :show]
 
   def index
     @companies = Company.all
@@ -6,6 +7,7 @@ class CompaniesController < ApplicationController
 
   def show
     @company = Company.find(params[:id])
+    @events = @company.events
   end
 
   def new

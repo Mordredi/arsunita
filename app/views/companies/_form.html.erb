@@ -1,0 +1,10 @@
+<%= form_for @company do |f| %>
+  <%= f.label :name, "Name" %>
+  <%= f.text_field :name %>
+  <%= f.label :description, "Description" %>
+  <%= f.text_area :description %>
+  <%= f.label :image, "Company Image" %>
+  <%= f.file_field :image %>
+  <%= f.hidden_field :image_cache %>
+  <%= f.button %>
+<% end %>

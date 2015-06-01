@@ -1,0 +1,4 @@
+<% @companies.each do |company| %>
+  <%= link_to company.name, company_path(company) %>
+  <%= company.description %>
+<% end %>
