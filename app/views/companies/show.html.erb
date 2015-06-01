@@ -5,7 +5,7 @@
   <%= link_to event.name, event_path(event) %>
 <% end %>
 <% if current_user && owner?(@company) %>
-  <%= link_to "New Event", new_event_path %>
+  <%= link_to "New Event", new_event_path(company: @company) %>
   <%= link_to "Edit Company", edit_company_path(@company) %>
 <% end %>
 

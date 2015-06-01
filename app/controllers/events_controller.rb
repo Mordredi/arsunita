@@ -24,7 +24,7 @@ class EventsController < ApplicationController
   end
 
   def new
-    @company = Company.find(params[:id])
+    @company = Company.find(params[:company])
     @event = Event.new
     @venues = Venue.all
     @users = User.where(arts_worker: true)
@@ -32,7 +32,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    @company = Company.find(params[:id])
+    @company = Company.find(params[:company])
     @users = User.all
     @venues = Venue.all
     @categories = Category.all

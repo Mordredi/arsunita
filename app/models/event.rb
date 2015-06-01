@@ -2,6 +2,7 @@ class Event < ActiveRecord::Base
 
   belongs_to :venue
   belongs_to :category
+  belongs_to :user
 
   has_many :shows
   accepts_nested_attributes_for :shows, :reject_if => :all_blank, :allow_destroy => true

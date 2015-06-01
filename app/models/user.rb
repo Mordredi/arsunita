@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   has_many :tickets
 
   has_many :companies
-  has_many :events, :through => :companies
+  has_many :events
 
   has_many :venues
 
@@ -31,8 +31,6 @@ class User < ActiveRecord::Base
   has_many :users_friending, :through => :frienders, :source => :friender
 
   has_many :videos
-
-  # after_validation :gravatar
 
   def full_name
     "#{first_name} #{last_name}"
