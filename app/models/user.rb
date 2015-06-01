@@ -12,7 +12,9 @@ class User < ActiveRecord::Base
   validates :first_name, :last_name, :presence => true
 
   has_many :tickets
-  has_many :events
+
+  has_many :companies
+  has_many :events, :through => :companies
 
   has_many :venues
 

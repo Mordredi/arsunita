@@ -24,6 +24,7 @@ class EventsController < ApplicationController
   end
 
   def new
+    @company = Company.find(params[:id])
     @event = Event.new
     @venues = Venue.all
     @users = User.where(arts_worker: true)
@@ -31,10 +32,11 @@ class EventsController < ApplicationController
   end
 
   def create
+    @company = Company.find(params[:id])
     @users = User.all
     @venues = Venue.all
     @categories = Category.all
-    @event = current_user.events.build(event_params)
+    @event = @company.events.build(event_params)
     if @event.save
       redirect_to event_url(@event), :notice => 'Created Event'
     else
@@ -44,6 +46,7 @@ class EventsController < ApplicationController
   end
 
   def edit
+    @company = Company.find(params[:id])
     @event = Event.find(params[:id])
     @venues = Venue.all
     @users = User.where(arts_worker: true)
@@ -51,6 +54,7 @@ class EventsController < ApplicationController
   end
 
   def update
+    @company = Company.find(params[:id])
     @users = User.where(arts_worker: true)
     @venues = Venue.all
     @categories = Category.all
