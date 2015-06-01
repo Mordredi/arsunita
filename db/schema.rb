@@ -11,13 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150527202821) do
+ActiveRecord::Schema.define(version: 20150601202715) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "companies", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.text     "description"
+    t.string   "image"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "companies", ["user_id"], name: "index_companies_on_user_id"
 
   create_table "event_members", force: :cascade do |t|
     t.integer  "event_id"
@@ -43,9 +54,11 @@ ActiveRecord::Schema.define(version: 20150527202821) do
     t.integer  "user_id"
     t.integer  "category_id",       default: 7
     t.string   "image",             default: "http://upload.wikimedia.org/wikipedia/commons/8/89/The_Main_House_Theatre,_The_Maltings_Theatre_%26_Arts_Centre,_Berwick-upon-Tweed,_March_2009.jpg"
+    t.integer  "company_id"
   end
 
   add_index "events", ["category_id"], name: "index_events_on_category_id"
+  add_index "events", ["company_id"], name: "index_events_on_company_id"
   add_index "events", ["user_id"], name: "index_events_on_user_id"
   add_index "events", ["venue_id"], name: "index_events_on_venue_id"
 
@@ -86,6 +99,7 @@ ActiveRecord::Schema.define(version: 20150527202821) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "time"
+    t.datetime "start_date"
   end
 
   add_index "shows", ["event_id"], name: "index_shows_on_event_id"
