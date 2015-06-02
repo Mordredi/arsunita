@@ -31,6 +31,7 @@ class User < ActiveRecord::Base
   has_many :users_friending, :through => :frienders, :source => :friender
 
   has_many :videos
+  has_many :images, :as => :imageable
 
   def full_name
     "#{first_name} #{last_name}"

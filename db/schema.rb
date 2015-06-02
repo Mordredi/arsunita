@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150601202715) do
+ActiveRecord::Schema.define(version: 20150602191935) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -93,6 +93,16 @@ ActiveRecord::Schema.define(version: 20150601202715) do
     t.datetime "updated_at",                  null: false
   end
 
+  create_table "images", force: :cascade do |t|
+    t.integer  "imageable_id"
+    t.string   "imageable_type"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.string   "name"
+  end
+
+  add_index "images", ["imageable_type", "imageable_id"], name: "index_images_on_imageable_type_and_imageable_id"
+
   create_table "shows", force: :cascade do |t|
     t.datetime "date"
     t.integer  "event_id"
@@ -104,15 +114,26 @@ ActiveRecord::Schema.define(version: 20150601202715) do
 
   add_index "shows", ["event_id"], name: "index_shows_on_event_id"
 
+  create_table "subscriptions", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "year"
+  end
+
+  add_index "subscriptions", ["user_id"], name: "index_subscriptions_on_user_id"
+
   create_table "tickets", force: :cascade do |t|
     t.integer  "num_of_general"
     t.integer  "show_id"
     t.integer  "user_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "subscription_id"
   end
 
   add_index "tickets", ["show_id"], name: "index_tickets_on_show_id"
+  add_index "tickets", ["subscription_id"], name: "index_tickets_on_subscription_id"
   add_index "tickets", ["user_id"], name: "index_tickets_on_user_id"
 
   create_table "users", force: :cascade do |t|
