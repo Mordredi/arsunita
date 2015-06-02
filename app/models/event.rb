@@ -14,4 +14,14 @@ class Event < ActiveRecord::Base
 
   validates :start_date, :end_date, :price_for_general, :name, :description, :presence => true
 
+  before_create :end_of_day
+
+  def start_of_day
+    self.start_date.beginning_of_day
+  end
+
+  def end_of_day
+    end_date.end_of_day
+  end
+
 end
