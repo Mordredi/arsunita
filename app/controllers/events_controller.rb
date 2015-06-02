@@ -24,7 +24,7 @@ class EventsController < ApplicationController
   end
 
   def new
-    @company = Company.find(params[:company])
+    @companies = current_user.companies
     @event = Event.new
     @venues = Venue.all
     @users = User.where(arts_worker: true)
@@ -32,11 +32,11 @@ class EventsController < ApplicationController
   end
 
   def create
-    @company = Company.find(params[:company])
+    @companies = current_user.companies
     @users = User.all
     @venues = Venue.all
     @categories = Category.all
-    @event = @company.events.build(event_params)
+    @event = current_user.events.build(event_params)
     if @event.save
       redirect_to event_url(@event), :notice => 'Created Event'
     else
@@ -46,7 +46,7 @@ class EventsController < ApplicationController
   end
 
   def edit
-    @company = Company.find(params[:id])
+    @companies = current_user.companies
     @event = Event.find(params[:id])
     @venues = Venue.all
     @users = User.where(arts_worker: true)
@@ -54,7 +54,7 @@ class EventsController < ApplicationController
   end
 
   def update
-    @company = Company.find(params[:id])
+    @companies = current_user.companies
     @users = User.where(arts_worker: true)
     @venues = Venue.all
     @categories = Category.all
@@ -77,7 +77,7 @@ class EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(
-      :name, :description, :start_date, :end_date, :price_for_general, :venue_id, :category_id, :image,
+      :name, :description, :start_date, :end_date, :price_for_general, :venue_id, :category_id, :image, :company_id,
       :shows_attributes => [:id, :date, :time, :_destroy],
       :event_members_attributes => [:role, :admin, :user_id, :_destroy]
     )

@@ -5,16 +5,18 @@
   <%= f.text_area :description %>
   <%= f.label :image, "Image" %>
   <%= f.text_field :image %>
+  <% if @companies %>
+    <%= f.label :company_id, "Company" %>
+    <%= f.collection_select(:company_id, @companies, :id, :name) %>
+  <% end %>
   <%= f.label :category_id, "Category" %>
   <%= f.collection_select(:category_id, @categories, :id, :name) %>
   <%= f.label :price_for_general, "Ticket Price" %>
   <%= f.number_field :price_for_general %>
   <%= f.label :start_date, "Event Start" %>
-  <%= f.hidden_field :start_date %>
-  <div class="calendar" data-date="event_start_date"></div>
+  <%= f.date_field :start_date %>
   <%= f.label :end_date, "Event End" %>
-  <%= f.hidden_field :end_date %>
-  <div class="calendar" data-date="event_end_date"></div>
+  <%= f.date_field :end_date %>
   <%= f.label :venue_id, "Venue" %>
   <%= f.collection_select(:venue_id, @venues, :id, :name) %>
   <div id="event_members">
