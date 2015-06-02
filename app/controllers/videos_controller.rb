@@ -6,10 +6,10 @@ class VideosController < ApplicationController
     respond_to do |format|
       if @video.save
         format.html { redirect_to user_path(current_user), :notice => "Video was saved" }
-        format.js {}
+        format.js
       else
         format.html { render 'show' }
-        format.js {}
+        format.js
       end
     end
   end

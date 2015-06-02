@@ -38,11 +38,16 @@
     <div class="user-videos">
       <%= render 'videos/video' %>
     </div>
+
+    <div class="user-images">
+      <%= render 'images/image' %>
+    </div>
   <% end %>
 
       <% if current_user && user_profile && current_user.arts_worker? %>
         <div class="user-links">
-          <%= link_to "Add Video", '#', 'data-link' => 'add-video', :class => 'btn-add-video' %>
+          <%= link_to "Add Video", '#', 'data-link' => 'add-video', :class => 'btn-add' %>
+          <%= link_to "Add Image", '#', 'data-link' => 'add-image', :class => 'btn-add' %>
         </div>
 
 
@@ -52,6 +57,17 @@
           <%= form_for @video, :remote => true do |f| %>
             <%= f.label :url, "Youtube Video Link" %>
             <%= f.text_field :url %>
+            <%= f.button %>
+          <% end %>
+        </div>
+      </div>
+
+      <div id="add-image" class="add-video">
+        <h2>Add Image</h2>
+        <div class="container">
+          <%= form_for @image, :remote => true do |f| %>
+            <%= f.label :name, "Image upload" %>
+            <%= f.file_field :name %>
             <%= f.button %>
           <% end %>
         </div>

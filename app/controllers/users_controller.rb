@@ -12,6 +12,7 @@ class UsersController < ApplicationController
     if current_user
       if current_user.arts_worker?
         @video = current_user.videos.build
+        @image = current_user.images.build
       end
     end
   end

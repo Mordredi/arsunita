@@ -18,7 +18,7 @@ $(document).on('ready page:load', function(){
 });
 
 $(document).on('ready page:load', function(){
-  $('.btn-add-video').on('click', function(e){
+  $('.btn-add').on('click', function(e){
     e.preventDefault();
     $('body').append('<div class="lightbox"> </div>');
     var link = '#' + $(this).attr('data-link');

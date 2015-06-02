@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :followings, :only => [:index, :create, :destroy]
   resources :friendships, :only => [:index, :create, :update, :destroy]
   resources :videos, :only => [:create, :destroy]
+  resources :images, :only => [:create, :destroy]
   resources :companies
 
   get 'login' => 'user_sessions#new', :as => :login
