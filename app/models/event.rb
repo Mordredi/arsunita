@@ -21,7 +21,7 @@ class Event < ActiveRecord::Base
   end
 
   def end_of_day
-    end_date.end_of_day
+    self.end_date = end_date.end_of_day
   end
 
 end
