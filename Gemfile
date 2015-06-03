@@ -34,6 +34,7 @@ gem 'jquery-ui-rails'
 gem 'carrierwave', :git => 'git@github.com:carrierwaveuploader/carrierwave.git'
 gem "fog-aws"
 gem 'mini_magick'
+gem 'remotipart', '~> 1.2'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

@@ -66,8 +66,9 @@
         <h2>Add Image</h2>
         <div class="container">
           <%= form_for @image, :remote => true do |f| %>
-            <%= f.label :name, "Image upload" %>
-            <%= f.file_field :name %>
+            <%= f.label :name, "Image Upload" %>
+            <%= f.file_field :image %>
+            <%= f.hidden_field :image_cache %>
             <%= f.button %>
           <% end %>
         </div>

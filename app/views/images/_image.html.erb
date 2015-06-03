@@ -2,7 +2,7 @@
 <div class="image-container">
   <% @user.images.each do |image| %>
     <div class="image-card">
-      <%= image_tag @user.image_url, :class => 'thumbnail' %>
+      <%= image_tag image.image_url(:medium), :class => 'thumbnail' %>
       <% if current_user.arts_worker? && user_profile %>
         <%= link_to "Delete Image", image_path(image), :class => 'delete-image', :method => :delete, :remote => true %>
       <% end %>

@@ -1,6 +1,7 @@
 class ImagesController < ApplicationController
 
   def create
+    @user = current_user
     @image = current_user.images.build(image_params)
 
     respond_to do |format|
@@ -28,7 +29,7 @@ class ImagesController < ApplicationController
   private
 
   def image_params
-    params.require(:images).permit(:name)
+    params.require(:image).permit(:image, :image_cache)
   end
 
 end
