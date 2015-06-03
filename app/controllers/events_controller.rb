@@ -9,6 +9,10 @@ class EventsController < ApplicationController
       else
         @events = Event.where(category_id: params[:search])
       end
+    elsif params[:longitude] && params[:latitude]
+      @venues = Venue.near([params[:latitude], params[:longitude]], 1, units: :km)
+      @events = @venues.map {|venue| venue.events }
+      @events.flatten!
     end
     respond_to do |format|
       format.html
