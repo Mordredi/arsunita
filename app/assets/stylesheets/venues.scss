@@ -29,23 +29,21 @@
 .venue {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
+  min-height: 93vh;
   background: #fff;
-  min-height: 94vh;
-  width: 80%;
-  margin: 0 auto;
-  padding: 3rem;
-  .venue-info-container {
-    display: flex;
-    justify-content: space-between;
-    width: 80%;
-    margin-bottom: 2rem;
-  }
+  padding: 2rem;
   h1 {
-    font-size: 2.5rem;
+    font-size: 3rem;
+  }
+  .col-left {
+    width: 100%;
+  }
+  .col-right {
+    width: 100%;
   }
   .venue-image-container {
-    width: 20rem;
+    width: 100%;
   }
   .venue-image {
     max-width:100%;
@@ -53,10 +51,8 @@
 }
 
 .venue-events {
-  width: 30rem;
-  height: 20rem;
+  width: 100%;
   text-align: center;
-  overflow: scroll;
   h2 {
     font-size: 2rem;
   }
@@ -73,4 +69,34 @@
 #map-canvas {
   height: 20rem;
   width: 20rem;
+}
+
+@media screen and (min-width: 700px) {
+  .venue {
+    width: 80vw;
+    margin: 0 auto;
+    .col-left {
+      width: 20rem;
+    }
+    .col-right {
+      width: 35rem;
+    }
+  }
+
+  .user-videos,
+  .user-images,
+  .user-events {
+    width: 35rem;
+    max-height: 14rem;
+    overflow: scroll;
+    h2 {
+      margin-top: 1rem;
+      margin-bottom: .5rem;
+    }
+  }
+  .user-profile {
+    .profile-image {
+      width: 20rem;
+    }
+  }
 }

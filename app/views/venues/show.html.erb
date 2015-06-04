@@ -1,5 +1,5 @@
 <div class="venue">
-  <div class="venue-info-container">
+  <div class="col-left">
     <div class="venue-image-container">
     <%= image_tag @venue.image, :class => 'venue-image' %>
     </div>
@@ -12,22 +12,23 @@
         <p>Venue Owner: <%= @venue.user.full_name %></p>
       <% end %>
     </div>
+    <div class="map-container">
+      <div id="map-canvas" data-latitude="<%= @venue.latitude.to_f %>" data-longitude="<%= @venue.longitude.to_f %>"></div>
+    </div>
   </div>
-  <div class="venue-events">
-    <h2>Events</h2>
-    <% @events.each do |event| %>
-      <div class="venue-event">
-        <p><%= link_to event.name, event_path(event) %></p>
-        <p><%= event.start_date.strftime("%b %d, %Y") %></p>
-      </div>
-    <% end %>
-  </div>
-  <div class="map-container">
-    <div id="map-canvas" data-latitude="<%= @venue.latitude.to_f %>" data-longitude="<%= @venue.longitude.to_f %>"></div>
+  <div class="col-right">
+    <div class="venue-events">
+      <h2>Events</h2>
+      <% @events.each do |event| %>
+        <div class="venue-event">
+          <p><%= link_to event.name, event_path(event) %></p>
+          <p><%= event.start_date.strftime("%b %d, %Y") %></p>
+        </div>
+      <% end %>
+    </div>
   </div>
   <% if current_user && owner?(@venue) %>
     <%= link_to "Edit Venue", edit_venue_path(@venue) %>
     <%= link_to "Delete Venue", venue_path(@venue), :method => :destroy %>
   <% end %>
-  <%= link_to "All Venues", venues_path %>
 </div>
