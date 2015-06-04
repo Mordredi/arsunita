@@ -26,3 +26,17 @@ $(document).on('ready page:load', function(){
     });
   });
 });
+
+$(document).on('ready page:load', function(){
+  $(document).on('click', '.reject', function(e){
+    e.preventDefault();
+    $(this).parent().remove();
+    $(this).hide();
+    var url = $(this).attr('href');
+    $.ajax({
+      url: url,
+      type: 'DELETE',
+      dataType: 'script'
+    });
+  });
+});

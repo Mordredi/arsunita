@@ -48,6 +48,16 @@ class FriendshipsController < ApplicationController
   end
 
   def destroy
+    @friendship = Friendship.find(params[:id])
+    respond_to do |format|
+      if @friendship.delete
+        format.html
+        format.js
+      else
+        format.html
+        format.js
+      end
+    end
   end
 
 end
