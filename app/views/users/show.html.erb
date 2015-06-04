@@ -1,19 +1,14 @@
 <div class="user-profile">
-  <div class="profile-image">
-    <% if @user.avatar_url %>
-      <%= image_tag @user.avatar_url, :class => 'profile-picture' %>
-    <% else %>
-      <%= image_tag @user.gravatar, :class => 'profile-picture' %>
-    <% end %>
-  </div>
-  <div class="name">
+  <div class="user-info">
+    <div class="profile-image">
+      <% if @user.avatar_url %>
+        <%= image_tag @user.avatar_url, :class => 'profile-picture' %>
+      <% else %>
+        <%= image_tag @user.gravatar, :class => 'profile-picture' %>
+      <% end %>
+    </div>
     <h1><%= @user.full_name %></h1>
-    <% if @user.arts_worker? %>
-      <p class="profession"><%= @user.profession %></p>
-    <% end %>
-    <p class="description"><%= @user.description %></p>
-  </div>
-  <% if current_user && !user_profile %>
+    <% if current_user && !user_profile %>
     <div class="social-links">
       <% if @user.arts_worker? %>
         <% if !following?(@user) %>
@@ -27,30 +22,34 @@
       <% end %>
     </div>
   <% end %>
+    <% if @user.arts_worker? %>
+      <p class="profession"><%= @user.profession %></p>
+    <% end %>
+    <p class="description"><%= @user.description %></p>
+  </div>
 
-  <% if @user.arts_worker? %>
+  <div class="arts-info">
+    <% if @user.arts_worker? %>
 
-    <div class="user-events">
-      <h2>Current Events</h2>
-      <%= render @event_members %>
-    </div>
+      <div class="user-events">
+        <%= render @event_members %>
+      </div>
 
-    <div class="user-videos">
-      <%= render 'videos/video' %>
-    </div>
+      <div class="user-videos">
+        <%= render 'videos/video' %>
+      </div>
+      <% if user_profile %>
+        <%= link_to "Add Video", '#', 'data-link' => 'add-video', :class => 'btn-add' %>
+      <% end %>
+      <div class="user-images">
+        <%= render 'images/image' %>
+      </div>
+      <% if user_profile %>
+        <%= link_to "Add Image", '#', 'data-link' => 'add-image', :class => 'btn-add' %>
+      <% end %>
+    <% end %>
 
-    <div class="user-images">
-      <%= render 'images/image' %>
-    </div>
-  <% end %>
-
-      <% if current_user && user_profile && current_user.arts_worker? %>
-        <div class="user-links">
-          <%= link_to "Add Video", '#', 'data-link' => 'add-video', :class => 'btn-add' %>
-          <%= link_to "Add Image", '#', 'data-link' => 'add-image', :class => 'btn-add' %>
-        </div>
-
-
+    <% if current_user && user_profile && current_user.arts_worker? %>
       <div id="add-video" class="add-video">
         <h2>Add Video</h2>
         <div class="container">
@@ -73,7 +72,6 @@
           <% end %>
         </div>
       </div>
-      <% end %>
-    </div>
-
+    <% end %>
+  </div>
 </div>

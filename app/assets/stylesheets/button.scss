@@ -19,6 +19,23 @@
   background: green;
 }
 
+.btn-add {
+  text-shadow: 1px 1px 1px black;
+  display: block;
+  color: #fff;
+  text-align: center;
+  padding: .5rem;
+  width: 10rem;
+  margin: .5rem auto;
+  background: $accent-color;
+  box-shadow: 0 1px 1px #333;
+  &:hover {
+    color: #fff;
+    background: $dark-accent;
+    box-shadow: 0 2px 2px #333;
+  }
+}
+
 @media screen and (min-width: 700px) {
   .btn {
     width: 30%;
