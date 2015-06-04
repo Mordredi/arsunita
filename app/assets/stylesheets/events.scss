@@ -67,28 +67,29 @@
 
 .event {
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
-  padding: 3rem;
+  justify-content: space-around;
+  min-height: 93vh;
   background: #fff;
-  width: 75vw;
-  min-height: 94vh;
-  margin: 0 auto;
+  padding: 2rem;
+  h1 {
+    font-size: 3rem;
+  }
   .event-image {
-    width: 20rem;
+    width: 100%;
     img {
       max-width: 100%;
     }
   }
   .event-info {
     text-align: center;
-    width: 30rem;
+    width: 100%;
     h1 {
       font-size: 3rem;
     }
   }
   .featuring {
-    width: 25rem;
+    width: 100%;
     text-align: center;
     h2 {
       font-size: 2rem;
@@ -97,9 +98,18 @@
   .shows {
     overflow: scroll;
     text-align: center;
-    width: 25rem;
+    width: 100%;
     h2 {
       font-size: 2rem;
     }
   }
+}
+
+
+@media screen and (min-width: 700px) {
+  .event {
+    width: 80vw;
+    margin: 0 auto;
+  }
+
 }
