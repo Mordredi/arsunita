@@ -14,15 +14,11 @@
   </div>
   <div class="col-right">
     <div class="featuring">
-      <h2>Featuring</h2>
-      <div class="event-members">
-        <% @event.event_members.each do |event_member| %>
-          <div class="event_member">
-            <p><%= event_member.user.full_name %>: <%= event_member.role %></p>
-          </div>
-        <% end %>
-      </div>
+      <%= render 'event_members/member' %>
     </div>
+    <% if current_user && owner?(@event) %>
+      <%= link_to "Add Member", '#', 'data-link' => 'add-member', :class => 'btn-add' %>
+    <% end %>
     <div class="shows">
       <h2>Shows</h2>
       <ul>
@@ -34,6 +30,20 @@
   </div>
 
     <% if current_user && owner?(@event) %>
+      <div id="add-member" class="add-video">
+        <h2>Add Member</h2>
+        <div class="container">
+          <%= form_for [@event, @event_member], :remote => true do |f| %>
+            <%= f.label :user_id, "Member" %>
+            <%= f.collection_select(:user_id, @users, :id, :full_name) %>
+            <%= f.label :role, "Role" %>
+            <%= f.text_field :role %>
+            <%= f.label :admin, "Admin" %>
+            <%= f.check_box :admin %>
+            <%= f.button %>
+          <% end %>
+        </div>
+      </div>
       <div class="links">
         <%= link_to "Edit Event", edit_event_path(@event) %>
         <%= link_to "Delete Event", event_path(@event), :method => :delete %>

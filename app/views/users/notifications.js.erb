@@ -1,0 +1,3 @@
+<% if @notifications.any? %>
+  $("#notifications").html(<%= @notifications.count %>).show()
+<% end %>

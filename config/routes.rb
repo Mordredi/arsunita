@@ -1,10 +1,17 @@
 Rails.application.routes.draw do
   root 'home_page#index'
 
-  resources :users
+  resources :users do
+    collection do
+      get 'notifications'
+    end
+  end
+
   resources :user_sessions, :only => [:new, :create, :destroy]
   resources :shows
-  resources :events
+  resources :events do
+    resources :event_members, :only  => [:create]
+  end
   resources :tickets, :only => [:index, :create]
   resources :venues
   resources :followings, :only => [:index, :create, :destroy]

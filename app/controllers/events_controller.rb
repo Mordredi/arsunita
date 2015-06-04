@@ -24,7 +24,9 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @shows = @event.shows
     @ticket = Ticket.new
-    @event_members = @event.event_members
+    @event_member = EventMember.new
+    @users = User.where(arts_worker: true)
+    @members = @event.event_members
   end
 
   def new
@@ -83,7 +85,6 @@ class EventsController < ApplicationController
     params.require(:event).permit(
       :name, :description, :start_date, :end_date, :price_for_general, :venue_id, :category_id, :image, :company_id,
       :shows_attributes => [:id, :date, :time, :_destroy],
-      :event_members_attributes => [:role, :admin, :user_id, :_destroy]
     )
   end
 

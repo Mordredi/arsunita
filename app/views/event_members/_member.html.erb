@@ -1,0 +1,6 @@
+<h2>Featuring</h2>
+<div class="event-members">
+  <% @members.each do |member| %>
+    <p><%= link_to "#{member.user.full_name}" %>: <%= member.role %></p>
+  <% end %>
+</div>
