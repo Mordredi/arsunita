@@ -6,8 +6,9 @@ class EventMembersController < ApplicationController
   end
 
   def create
-    @event = Event.find(params[:id])
+    @event = Event.find(params[:event_id])
     @member = @event.event_members.build(event_member_params)
+    @members = @event.event_members
     respond_to do |format|
       if @member.save
         format.html

@@ -89,6 +89,8 @@
     }
   }
   .featuring {
+    max-height: 16rem;
+    overflow: auto;
     width: 100%;
     text-align: center;
     h2 {
@@ -96,9 +98,11 @@
     }
   }
   .shows {
-    overflow: scroll;
+    margin-top: 1rem;
+    overflow: auto;
     text-align: center;
     width: 100%;
+    max-height: 16rem;
     h2 {
       font-size: 2rem;
     }
