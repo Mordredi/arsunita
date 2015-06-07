@@ -25,6 +25,8 @@ Rails.application.routes.draw do
 
   get 'search' => 'home_page#search', :as => :search
 
+  get 'notifications' => 'home_page#notifications'
+
   get 'requests' => 'friendships#requests'
   get 'followers' => 'followings#followers'
   # The priority is based upon order of creation: first created -> highest priority.
