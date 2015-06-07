@@ -23,6 +23,7 @@ class FriendshipsController < ApplicationController
     @friendee.save
     respond_to do |format|
       if @friendee.save
+        @notification = @user.notifications.create
         format.html { redirect_to user_path(@user), :notice => "User friended pending acceptance" }
         format.js
       else

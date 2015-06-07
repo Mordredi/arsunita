@@ -30,6 +30,8 @@ class User < ActiveRecord::Base
   has_many :friended_users, :through => :friendees, :source => :friendee
   has_many :users_friending, :through => :frienders, :source => :friender
 
+  has_many :notifications
+
   has_many :videos
   has_many :images, :as => :imageable
 
