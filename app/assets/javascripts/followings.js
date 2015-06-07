@@ -6,7 +6,7 @@ $(document).on('ready page:load', function(){
     $.ajax({
       url: url,
       data: 'script',
-      dataType: 'PATCH'
+      dataType: 'POST'
     });
   });
 });
