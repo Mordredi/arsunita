@@ -1,0 +1,10 @@
+.notification {
+  position: fixed;
+  top: .2rem;
+  right: 11rem;
+  height: .75rem;
+  width: .75rem;
+  background: $accent-color;
+  border-radius: 50%;
+  z-index: 200;
+}

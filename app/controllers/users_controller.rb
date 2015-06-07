@@ -59,6 +59,9 @@ class UsersController < ApplicationController
   end
 
   def notifications
+
+    @notifications = current_user.notifications.where(:viewed => false)
+
     respond_to do |f|
       f.js {}
     end
