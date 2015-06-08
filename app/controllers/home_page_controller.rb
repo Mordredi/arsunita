@@ -19,7 +19,6 @@ class HomePageController < ApplicationController
   end
 
   def notifications
-
     @notifications = current_user.notifications.where(:viewed => false)
     @request_notifications = @notifications.where(:notification_type => 0)
     @friend_notifications = @notifications.where(:notification_type => 1)
