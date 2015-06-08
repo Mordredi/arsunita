@@ -68,6 +68,45 @@ form {
   width: 100%;
 }
 
+.add-video, .container-lrg {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border: 1px solid black;
+  background: #fff;
+  width: 50rem;
+  height: 20rem;
+  text-align: center;
+  margin: .5rem auto;
+  padding: 0 .5rem .5rem;
+  z-index: 10;
+
+  .container-sm {
+    border: 1px solid black;
+    width: 30%;
+  }
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  height: 15rem;
+}
+
+.lightbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top:0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: hsla(0, 0%, 0%, .7);
+}
+
 @media screen and (min-width: 700px) {
   .col-left {
     width: 20rem;
@@ -75,4 +114,10 @@ form {
   .col-right {
     width: 35rem;
   }
+
+  .add-video, .container-lrg {
+    width: 50rem;
+    height: 20rem;
+  }
+
 }

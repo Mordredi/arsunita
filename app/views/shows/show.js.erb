@@ -1,4 +1,5 @@
 $('.lightbox').append("<%= j(render 'show') %>");
-$('.show-close').on('click', function(){
+$('.show-close').on('click', function(e){
+  e.preventDefault();
   $('.lightbox').remove();
 });

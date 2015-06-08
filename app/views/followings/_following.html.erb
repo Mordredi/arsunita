@@ -2,7 +2,12 @@
   <h2>Following</h2>
   <div class="container">
     <% @followings.each do |following| %>
-      <div class="container-sm">
+      <div class="user-friend">
+        <% if following.avatar_url %>
+          <%= image_tag "#{following.avatar_url(:medium)}", :class => 'friend-image' %>
+        <% else %>
+          <%= image_tag "#{following.gravatar}", :class => 'friend-image' %>
+        <% end %>
         <%= link_to "#{following.full_name}", user_path(following), :class => 'user-link' %>
       </div>
     <% end %>

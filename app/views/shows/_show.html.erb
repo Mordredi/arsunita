@@ -12,14 +12,21 @@
     <div class="friends-attending">
       <h2>Friends Attending</h2>
       <% @show.tickets.each do |ticket| %>
-        <% if current_user.friends.include?(ticket.user) %>
-          <%= ticket.user.full_name %>
-        <% end %>
+        <div class="show-friend">
+          <% if current_user.friends.include?(ticket.user) %>
+            <% if ticket.user.avatar_url %>
+              <%= image_tag "#{ticket.user.avatar_url(:thumb)}", :class => 'header-user-gravatar' %>
+            <% else %>
+              <%= image_tag "#{ticket.user.gravatar}", :class => 'header-user-gravatar' %>
+            <% end %>
+            <%= link_to ticket.user.full_name, user_path(ticket.user) %>
+          <% end %>
+        </div>
       <% end %>
     </div>
   <% else %>
     <p>Please <%= link_to "login", :login %> or <%= link_to "register", new_user_path %> to buy tickets</p>
   <% end %>
   </div>
-  <p class="show-close">Close</p>
+  <%= link_to "Close", "#", :class => 'show-close' %>
 </div>

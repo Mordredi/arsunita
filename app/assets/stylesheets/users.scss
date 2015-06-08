@@ -67,39 +67,9 @@
   }
 }
 
-.add-video, .container-lrg {
-  position: absolute;
-  top: 25vh;
-  left: 25vw;
-  border: 1px solid black;
-  background: #fff;
-  width: 50vw;
-  height: 50vh;
-  text-align: center;
-  margin: .5rem auto;
-  padding: 0 .5rem .5rem;
-  z-index: 10;
-  .container {
-    display: flex;
-    justify-content: space-around;
-  }
-  .container-sm {
-    border: 1px solid black;
-    width: 30%;
-  }
-}
 
 .add-video {
   display: none;
-}
-
-.lightbox {
-  position: fixed;
-  top:0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: hsla(0, 0%, 0%, .7);
 }
 
 .login {

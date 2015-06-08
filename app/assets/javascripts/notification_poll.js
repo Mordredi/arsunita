@@ -4,13 +4,10 @@ $(document).ready(function() {
         $.ajax({
             url: "/notifications",
             type: "GET",
-            success: function(data) {
-                console.log("polling");
-            },
             dataType: "script",
             complete: poll,
             timeout: 5000
-        }) //, 5000  <-- oops.
-    }, 5000); // <-- should be here instead
+        })
+    }, 5000);
   })();
 });

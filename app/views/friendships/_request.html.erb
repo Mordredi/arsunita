@@ -3,7 +3,12 @@
   <div class="container">
     <% @requests.each do |request| %>
       <% friender = request.friender %>
-      <div class="container-sm">
+      <div class="user-friend">
+      <% if friender.avatar_url %>
+          <%= image_tag "#{friender.avatar_url(:medium)}", :class => 'friend-image' %>
+        <% else %>
+          <%= image_tag "#{friender.gravatar}", :class => 'friend-image' %>
+        <% end %>
         <p><%= link_to "#{friender.full_name}", user_path(friender), :class => 'user-link' %></p>
         <%= link_to friendship_path(request), :class => 'confirm' do %>
           &check;
