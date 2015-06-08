@@ -5,8 +5,9 @@ $(document).on('ready page:load', function(){
     var url = $(this).attr('href');
     $.ajax({
       url: url,
-      data: 'script',
-      dataType: 'POST'
+      type: 'POST',
+      cache: false,
+      dataType: 'script'
     });
   });
 });
