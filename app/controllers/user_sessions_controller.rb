@@ -7,7 +7,7 @@ class UserSessionsController < ApplicationController
   end
 
   def create
-    if @user = login(params[:email], params[:password])
+    if @user = login(params[:email], params[:password], params[:remember])
        redirect_to user_url(@user), :notice => 'Login successful'
     else
       flash.now[:alert] = 'Login failed'
@@ -22,7 +22,7 @@ class UserSessionsController < ApplicationController
 
   private
   def session_params
-    params.require(:user_sessions).permit(:email, :password)
+    params.require(:user_sessions).permit(:email, :password, :remember)
   end
 
 end
