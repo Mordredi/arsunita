@@ -1,3 +1,20 @@
 <% if @notifications.any? %>
   $("#notifications").html(<%= @notifications.count %>).show()
+<% else %>
+  $("#notifications").hide()
+<% end %>
+<% if @request_notifications.any? %>
+  $("#request-notifications").html(<%= @notifications.count %>).show()
+  <% else %>
+  $("#request-notifications").hide()
+<% end %>
+<% if @friend_notifications.any? %>
+  $("#friend-notifications").html(<%= @notifications.count %>).show()
+  <% else %>
+  $("#friend-notifications").hide()
+<% end %>
+<% if @follower_notifications.any? %>
+  $("#follower-notifications").html(<%= @notifications.count %>).show()
+  <% else %>
+  $("#follower-notifications").hide()
 <% end %>
