@@ -18,19 +18,7 @@
     </div>
     <% if current_user && owner?(@event) %>
       <%= link_to "Add Member", '#', 'data-link' => 'add-member', :class => 'btn-add' %>
-    <% end %>
-    <div class="shows">
-      <h2>Shows</h2>
-      <ul>
-        <% @event.shows.each do |show| %>
-          <li><%= link_to "#{show.date.strftime('%b %d, %Y')} @ #{show.time.strftime('%I:%M:%S %p')}", show_path(show), :class => 'btn-user-social' %></li>
-        <% end %>
-      </ul>
-    </div>
-  </div>
-
-    <% if current_user && owner?(@event) %>
-      <div id="add-member" class="add-video">
+      <div id="add-member" class="add-asset">
         <h2>Add Member</h2>
         <div class="container">
           <%= form_for [@event, @event_member], :remote => true do |f| %>
@@ -44,6 +32,18 @@
           <% end %>
         </div>
       </div>
+    <% end %>
+    <div class="shows">
+      <h2>Shows</h2>
+      <ul>
+        <% @event.shows.each do |show| %>
+          <li><%= link_to "#{show.date.strftime('%b %d, %Y')} @ #{show.time.strftime('%I:%M:%S %p')}", show_path(show), :class => 'btn-user-social' %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
+    <% if current_user && owner?(@event) %>
       <div class="links">
         <%= link_to "Edit Event", edit_event_path(@event) %>
         <%= link_to "Delete Event", event_path(@event), :method => :delete %>

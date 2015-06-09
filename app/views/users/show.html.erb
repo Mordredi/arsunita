@@ -22,13 +22,13 @@
     <div class="social-links">
       <% if @user.arts_worker? %>
         <% if !following?(@user) %>
-          <%= link_to "Follow #{@user.full_name}", followings_path(id: @user.id), :class => 'btn-follow' %>
+          <%= link_to "Follow", followings_path(id: @user.id), :class => 'btn-follow' %>
         <% else %>
           <p>You are following <%= @user.full_name %></p>
         <% end %>
       <% end %>
       <% if !friends?(@user) %>
-        <%= link_to "Add #{@user.full_name} as friend", friendships_path(id: @user.id), :class => 'btn-friend' %>
+        <%= link_to "Friend", friendships_path(id: @user.id), :class => 'btn-friend' %>
       <% end %>
     </div>
   <% end %>

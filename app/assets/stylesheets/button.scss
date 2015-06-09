@@ -36,6 +36,34 @@
   }
 }
 
+.btn-follow, .btn-friend {
+  display: inline-block;
+  padding: 1rem;
+  color: #fff;
+  width: 7rem;
+  text-shadow: 0 1px 1px #333;
+  box-shadow: 0 1px 1px #333;
+  margin-bottom: 1rem;
+  &:hover {
+    color: #fff;
+    box-shadow: 0 2px 2px #333;
+  }
+}
+
+.btn-follow {
+  background: $contrast-color;
+  &:hover {
+    background: $dark-contrast;
+  }
+}
+
+.btn-friend {
+  background: $accent-color;
+  &:hover {
+    background: $dark-accent;
+  }
+}
+
 @media screen and (min-width: 700px) {
   .btn {
     width: 30%;
