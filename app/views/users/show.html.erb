@@ -1,12 +1,22 @@
 <div class="user-profile">
   <div class="col-left">
     <div class="profile-image">
-      <% if @user.avatar_url %>
-        <%= image_tag @user.avatar_url, :class => 'profile-picture' %>
-      <% else %>
-        <%= image_tag @user.gravatar, :class => 'profile-picture' %>
-      <% end %>
+      <%= render 'profile_image' %>
     </div>
+    <% if current_user && user_profile %>
+        <%= link_to "Change Avatar", '#', 'data-link' => 'add-avatar', :class => 'btn-add' %>
+        <div id="add-avatar" class="add-asset">
+          <h2>Change Avatar</h2>
+          <div class="container">
+            <%= form_for @user, :remote => true do |f| %>
+              <%= f.label :avatar, "Avatar Upload" %>
+              <%= f.file_field :avatar %>
+              <%= f.hidden_field :avatar_cache %>
+              <%= f.button %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
     <h1><%= @user.full_name %></h1>
     <% if current_user && !user_profile %>
     <div class="social-links">
@@ -40,7 +50,7 @@
       </div>
       <% if user_profile %>
         <%= link_to "Add Video", '#', 'data-link' => 'add-video', :class => 'btn-add' %>
-        <div id="add-video" class="add-video">
+        <div id="add-video" class="add-asset">
         <h2>Add Video</h2>
         <div class="container">
           <%= form_for @video, :remote => true do |f| %>
@@ -56,17 +66,17 @@
       </div>
       <% if user_profile %>
         <%= link_to "Add Image", '#', 'data-link' => 'add-image', :class => 'btn-add' %>
-        <div id="add-image" class="add-video">
-        <h2>Add Image</h2>
-        <div class="container">
-          <%= form_for @image, :remote => true do |f| %>
-            <%= f.label :name, "Image Upload" %>
-            <%= f.file_field :image %>
-            <%= f.hidden_field :image_cache %>
-            <%= f.button %>
-          <% end %>
+        <div id="add-image" class="add-asset">
+          <h2>Add Image</h2>
+          <div class="container">
+            <%= form_for @image, :remote => true do |f| %>
+              <%= f.label :name, "Image Upload" %>
+              <%= f.file_field :image %>
+              <%= f.hidden_field :image_cache %>
+              <%= f.button %>
+            <% end %>
+          </div>
         </div>
-      </div>
       <% end %>
     <% end %>
   </div>

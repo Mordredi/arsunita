@@ -68,12 +68,17 @@
 }
 
 
-.add-video {
+.add-asset {
   height: 0;
+  text-align: center;
   overflow: hidden;
   transition: all 500ms ease-out;
+  input {
+    width: 20rem;
+    margin: 1rem auto;
+  }
   &.show {
-    height: 15rem;
+    height: 11rem;
   }
 }
 

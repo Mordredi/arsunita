@@ -21,7 +21,7 @@ $(document).on('ready page:load', function(){
   $('.btn-add').on('click', function(e){
     e.preventDefault();
     var link = '#' + $(this).attr('data-link');
-    $(link).addClass('show');
+    $(link).toggleClass('show');
   });
 });
 
