@@ -7,8 +7,6 @@ class Ticket < ActiveRecord::Base
   before_save :check_capacity
 
   def cost_of_tickets
-    # @show = Show.find(show_id)
-    # @event = @show.event
     event.price_for_general * num_of_general
   end
 

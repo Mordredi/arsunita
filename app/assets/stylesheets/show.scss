@@ -26,3 +26,16 @@
 .friends-attending {
   margin: 1rem 0;
 }
+
+.admin {
+  height: 0;
+  overflow: hidden;
+  transition: all 500ms ease-out;
+  h2 {
+    font-size: 1.5rem;
+  }
+  &.open {
+    height: 10rem;
+    overflow: auto;
+  }
+}

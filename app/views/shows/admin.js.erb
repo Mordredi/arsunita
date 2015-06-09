@@ -1,0 +1,6 @@
+$('.admin').html("<%= j(render 'shows/admin') %>");
+$('.admin').addClass('open');
+$('.show-close').on('click', function(e) {
+  e.preventDefault();
+  $('.admin').removeClass('open');
+});

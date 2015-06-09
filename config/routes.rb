@@ -8,7 +8,11 @@ Rails.application.routes.draw do
   end
 
   resources :user_sessions, :only => [:new, :create, :destroy]
-  resources :shows
+  resources :shows do
+    member do
+      get 'admin'
+    end
+  end
   resources :events do
     resources :event_members, :only  => [:create]
   end
@@ -29,6 +33,7 @@ Rails.application.routes.draw do
 
   get 'requests' => 'friendships#requests'
   get 'followers' => 'followings#followers'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

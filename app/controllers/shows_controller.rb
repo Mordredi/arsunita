@@ -8,4 +8,11 @@ class ShowsController < ApplicationController
     end
   end
 
+  def admin
+    @show = Show.find(params[:id])
+    respond_to do |format|
+      format.js
+    end
+  end
+
 end

@@ -1,0 +1,5 @@
+<h2>Admin</h2>
+<div class="show-time"><%= @show.date.strftime('%b %d, %Y') %> @ <%= @show.time.strftime('%I:%M:%S %p') %></div>
+<div class="tickets-sold">Tickets sold: <%= @show.tickets_sold %></div>
+<div class="tickets-remaining">Tickets remaining: <%= @show.tickets_remaining %></div>
+<div class="btn-close"><%= link_to "Close", "#", :class => 'show-close' %></div>

@@ -17,4 +17,15 @@ class Show < ActiveRecord::Base
     tickets_for_show.sum(:num_of_general) + num_of_general <= @venue.num_of_seats
   end
 
+  def tickets_sold
+    tickets_for_show = tickets.all
+    tickets_for_show.sum(:num_of_general)
+  end
+
+  def tickets_remaining
+    @event = Event.find(event_id)
+    @venue = Venue.find(@event.venue_id)
+    @venue.num_of_seats - tickets_sold
+  end
+
 end

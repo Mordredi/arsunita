@@ -38,9 +38,13 @@
       <ul>
         <% @event.shows.each do |show| %>
           <li><%= link_to "#{show.date.strftime('%b %d, %Y')} @ #{show.time.strftime('%I:%M:%S %p')}", show_path(show), :class => 'show-info' %></li>
+          <% if current_user && owner?(@event) %>
+            <li><%= link_to "Admin", admin_show_path(show), :remote => true %></li>
+          <% end %>
         <% end %>
       </ul>
       <div class="show"></div>
+      <div class="admin"></div>
     </div>
   </div>
 
