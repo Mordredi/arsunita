@@ -139,3 +139,23 @@ User.last.events.create({
   category: Category.first,
   image: 'http://www.westernmorningnews.co.uk/images/localworld/ugc-images/276272/Article/images/26577496/10152813-large.jpg'
 })
+
+Show.create({
+  date: Date.tomorrow,
+  time: "20:00",
+  event: Event.last
+})
+
+Show.create({
+  date: Date.tomorrow.tomorrow,
+  time: "20:00",
+  event: Event.last
+})
+
+30.times do
+  Ticket.create({
+    user: User.all.sample,
+    show: Show.all.sample,
+    num_of_general: Random.rand(1..10)
+  })
+end
