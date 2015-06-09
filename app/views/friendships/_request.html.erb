@@ -10,12 +10,14 @@
           <%= image_tag "#{friender.gravatar}", :class => 'friend-image' %>
         <% end %>
         <p><%= link_to "#{friender.full_name}", user_path(friender), :class => 'user-link' %></p>
-        <%= link_to friendship_path(request), :class => 'confirm' do %>
-          &check;
-        <% end %>
-        <%= link_to friendship_path(request), :class => 'reject' do %>
-          &#65794;
-        <% end %>
+        <div class="request-btns">
+          <%= link_to friendship_path(request), :class => 'confirm' do %>
+            &check;
+          <% end %>
+          <%= link_to friendship_path(request), :class => 'reject' do %>
+            &#65794;
+          <% end %>
+        </div>
       </div>
     <% end %>
   </div>

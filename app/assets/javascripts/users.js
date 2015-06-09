@@ -12,12 +12,6 @@ $(document).on('ready page:load', function(){
 });
 
 $(document).on('ready page:load', function(){
-  $('.btn-change-avatar').on('click', function(){
-
-  });
-});
-
-$(document).on('ready page:load', function(){
   $('.btn-add').on('click', function(e){
     e.preventDefault();
     var link = '#' + $(this).attr('data-link');

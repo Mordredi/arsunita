@@ -37,9 +37,10 @@
       <h2>Shows</h2>
       <ul>
         <% @event.shows.each do |show| %>
-          <li><%= link_to "#{show.date.strftime('%b %d, %Y')} @ #{show.time.strftime('%I:%M:%S %p')}", show_path(show), :class => 'btn-user-social' %></li>
+          <li><%= link_to "#{show.date.strftime('%b %d, %Y')} @ #{show.time.strftime('%I:%M:%S %p')}", show_path(show), :class => 'show-info' %></li>
         <% end %>
       </ul>
+      <div class="show"></div>
     </div>
   </div>
 

@@ -4,17 +4,17 @@
   $("#notifications").hide()
 <% end %>
 <% if @request_notifications.any? %>
-  $("#request-notifications").html(<%= @notifications.count %>).show()
+  $("#request-notifications").html(<%= @request_notifications.count %>).show()
   <% else %>
   $("#request-notifications").hide()
 <% end %>
 <% if @friend_notifications.any? %>
-  $("#friend-notifications").html(<%= @notifications.count %>).show()
+  $("#friend-notifications").html(<%= @friend_notifications.count %>).show()
   <% else %>
   $("#friend-notifications").hide()
 <% end %>
 <% if @follower_notifications.any? %>
-  $("#follower-notifications").html(<%= @notifications.count %>).show()
+  $("#follower-notifications").html(<%= @follower_notifications.count %>).show()
   <% else %>
   $("#follower-notifications").hide()
 <% end %>

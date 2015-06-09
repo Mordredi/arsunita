@@ -1,5 +1,6 @@
-$('.lightbox').append("<%= j(render 'show') %>");
+$('.show').html("<%= j(render 'shows/show') %>");
+$('.show').addClass('open');
 $('.show-close').on('click', function(e){
   e.preventDefault();
-  $('.lightbox').remove();
-});
+  $('.show').removeClass('open');
+})
