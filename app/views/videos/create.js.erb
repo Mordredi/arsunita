@@ -1,3 +1,2 @@
-$('.lightbox').remove();
-$('#add-video').hide();
 $('.user-videos').html("<%= j(render 'videos/video') %>")
+$('#add-video').removeClass('show')

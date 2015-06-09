@@ -1,5 +1,5 @@
 <div class="user-profile">
-  <div class="user-info">
+  <div class="col-left">
     <div class="profile-image">
       <% if @user.avatar_url %>
         <%= image_tag @user.avatar_url, :class => 'profile-picture' %>
@@ -28,7 +28,7 @@
     <p class="description"><%= @user.description %></p>
   </div>
 
-  <div class="arts-info">
+  <div class="col-right">
     <% if @user.arts_worker? %>
 
       <div class="user-events">
@@ -40,17 +40,7 @@
       </div>
       <% if user_profile %>
         <%= link_to "Add Video", '#', 'data-link' => 'add-video', :class => 'btn-add' %>
-      <% end %>
-      <div class="user-images">
-        <%= render 'images/image' %>
-      </div>
-      <% if user_profile %>
-        <%= link_to "Add Image", '#', 'data-link' => 'add-image', :class => 'btn-add' %>
-      <% end %>
-    <% end %>
-
-    <% if current_user && user_profile && current_user.arts_worker? %>
-      <div id="add-video" class="add-video">
+        <div id="add-video" class="add-video">
         <h2>Add Video</h2>
         <div class="container">
           <%= form_for @video, :remote => true do |f| %>
@@ -60,8 +50,13 @@
           <% end %>
         </div>
       </div>
-
-      <div id="add-image" class="add-video">
+      <% end %>
+      <div class="user-images">
+        <%= render 'images/image' %>
+      </div>
+      <% if user_profile %>
+        <%= link_to "Add Image", '#', 'data-link' => 'add-image', :class => 'btn-add' %>
+        <div id="add-image" class="add-video">
         <h2>Add Image</h2>
         <div class="container">
           <%= form_for @image, :remote => true do |f| %>
@@ -72,6 +67,7 @@
           <% end %>
         </div>
       </div>
+      <% end %>
     <% end %>
   </div>
 </div>

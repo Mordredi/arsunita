@@ -69,7 +69,12 @@
 
 
 .add-video {
-  display: none;
+  height: 0;
+  overflow: hidden;
+  transition: all 500ms ease-out;
+  &.show {
+    height: 15rem;
+  }
 }
 
 .login {

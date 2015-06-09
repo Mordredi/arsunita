@@ -68,7 +68,7 @@ form {
   width: 100%;
 }
 
-.add-video, .container-lrg {
+.container-lrg {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -115,7 +115,7 @@ form {
     width: 35rem;
   }
 
-  .add-video, .container-lrg {
+  .container-lrg {
     width: 50rem;
     height: 20rem;
   }

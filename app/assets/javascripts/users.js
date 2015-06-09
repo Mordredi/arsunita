@@ -20,13 +20,8 @@ $(document).on('ready page:load', function(){
 $(document).on('ready page:load', function(){
   $('.btn-add').on('click', function(e){
     e.preventDefault();
-    $('body').append('<div class="lightbox"> </div>');
     var link = '#' + $(this).attr('data-link');
-    $(link).show();
-    $('.lightbox').on('click', function(){
-      $(link).hide();
-      $(this).remove();
-    });
+    $(link).addClass('show');
   });
 });
 
