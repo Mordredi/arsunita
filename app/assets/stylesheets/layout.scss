@@ -75,16 +75,24 @@ form {
   justify-content: space-around;
   border: 1px solid black;
   background: #fff;
-  width: 50rem;
+  width: 25rem;
+  background: #ffe8c1;
   height: 20rem;
   text-align: center;
   margin: .5rem auto;
   padding: 0 .5rem .5rem;
   z-index: 10;
-
+  h2 {
+    font-size: 2rem;
+    color: $dark-primary;
+    text-shadow: 0 1px 1px #333;
+  }
   .container-sm {
-    border: 1px solid black;
+    border: 1px solid #555;
     width: 30%;
+    p {
+      color: #555;
+    }
   }
 }
 
@@ -117,7 +125,7 @@ form {
   }
 
   .container-lrg {
-    width: 50rem;
+    width: 30rem;
     height: 20rem;
   }
 
